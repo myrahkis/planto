@@ -1,11 +1,19 @@
-<script setup></script>
+<script setup>
+import BestO2Section from './components/BestO2Section.vue'
+import CustomerReviewSection from './components/CustomerReviewSection.vue'
+import Footer from './components/Footer.vue'
+import Header from './components/Header.vue'
+import HeroSection from './components/HeroSection.vue'
+import TopSellingSection from './components/TopSellingSection.vue'
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+  <Header />
+  <HeroSection />
+  <!-- <TopSellingSection />
+  <CustomerReviewSection />
+  <BestO2Section />
+  <Footer /> -->
 </template>
 
 <style scoped></style>

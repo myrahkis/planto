@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+:root {
+  --bg-color: #1b2316;
+  --white-color: #ffffff;
+  --horiz-section-padding: 3.5rem;
+  --vert-section-padding: 8.5rem;
+  --blur-bg-color: rgba(255, 255, 255, 5);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+  font-family: 'Inter', sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.5rem;
+  font-weight: 500;
+  background-color: var(--bg-color);
+  color: var(--white-color);
+}
+
+section {
+  padding: var(--vert-section-padding) var(--horiz-section-padding);
+}
+
+header,
+footer {
+  padding: 0 var(--horiz-section-padding);
+}
