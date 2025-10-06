@@ -10,10 +10,10 @@ import TopSellingSection from './components/TopSellingSection.vue'
 <template>
   <Header />
   <HeroSection />
-  <!-- <TopSellingSection />
+  <TopSellingSection />
   <CustomerReviewSection />
   <BestO2Section />
-  <Footer /> -->
+  <Footer />
 </template>
 
 <style scoped></style>

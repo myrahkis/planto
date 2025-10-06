@@ -3,9 +3,11 @@
 :root {
   --bg-color: #1b2316;
   --white-color: #ffffff;
-  --horiz-section-padding: 3.5rem;
+  --text-color: #c8cac8;
+  --horiz-section-padding: 2.5rem;
   --vert-section-padding: 8.5rem;
-  --blur-bg-color: rgba(255, 255, 255, 5);
+  --blur-bg-color: rgba(255, 255, 255, 0.05);
+  --border-color: rgba(255, 255, 255, 0.3);
 }
 
 *,
@@ -27,6 +29,7 @@ html {
 }
 
 body {
+  position: relative;
   font-size: 1.5rem;
   font-weight: 500;
   background-color: var(--bg-color);
@@ -40,4 +43,45 @@ section {
 header,
 footer {
   padding: 0 var(--horiz-section-padding);
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.u-card-border-gradient {
+  --u-card-border-radius: 3rem;
+  --u-card-transparent-percent: 25%;
+  border-radius: var(--u-card-border-radius);
+  background-color: var(--blur-bg-color);
+  backdrop-filter: blur(6px);
+}
+.u-card-border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: var(--u-card-border-radius);
+  padding: 1px;
+
+  background:
+    linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent var(--u-card-transparent-percent)
+      )
+      top left / 100% 100% no-repeat,
+    linear-gradient(
+        315deg,
+        rgba(255, 255, 255, 0.3) 0%,
+        transparent var(--u-card-transparent-percent)
+      )
+      bottom right / 100% 100% no-repeat;
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
 }
