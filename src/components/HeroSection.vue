@@ -198,6 +198,7 @@ import HeadingCorners from './HeadingCorners.vue'
   left: var(--horiz-section-padding);
   right: var(--horiz-section-padding);
   bottom: 8rem;
+  /* padding-top: 47%; */
   left: var(--horiz-section-padding);
   display: flex;
   flex-direction: column;
