@@ -1,18 +1,61 @@
 <script setup>
-const feedbacks = []
+import FeedbackCard from './FeedbackCard.vue'
+import HeadingCorners from './HeadingCorners.vue'
+
+const feedbacks = [
+  {
+    avaPath: '/src/assets/images/avas/ava-4.png',
+    name: 'Maln Josi',
+    starsAmount: 5,
+    reviewText:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+  },
+  {
+    avaPath: '/src/assets/images/avas/ava-2.png',
+    name: 'Alina Thakur',
+    starsAmount: 5,
+    reviewText:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+  },
+  {
+    avaPath: '/src/assets/images/avas/ava-3.png',
+    name: 'Max Makvana',
+    starsAmount: 5,
+    reviewText:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
+  },
+]
 </script>
 
 <template>
   <section class="customer-review-section">
-    <h2>Customer Review</h2>
-    <div class="feedbacks">
-      <div class="feedback-card" v-for="(item, index) in feedbacks" :key="index">
-        <div class="card-header">
-          <img src="" alt="" />
-          <p>name</p>
-          <p>feedback</p>
-        </div>
-      </div>
+    <div class="heading-corners">
+      <HeadingCorners headingText="Customer Review" />
+    </div>
+    <div class="feedbacks-grid">
+      <FeedbackCard v-for="(card, index) in feedbacks" :key="index" :card="card" />
     </div>
   </section>
 </template>
+
+<style scoped>
+.customer-review-section {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+}
+
+.heading-corners {
+  position: relative;
+  width: fit-content;
+}
+
+.feedbacks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  width: 100%;
+  margin-top: var(--vert-section-padding);
+}
+</style>

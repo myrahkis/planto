@@ -25,7 +25,6 @@ const plantsData = [
 
 <style scoped>
 .top-selling-section {
-  /* position: relative; */
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -42,6 +41,6 @@ const plantsData = [
   column-gap: 3rem;
   row-gap: 12rem;
   width: 100%;
-  margin-top: calc(var(--vert-section-padding) + 6rem);
+  margin-top: calc(var(--vert-section-padding) + 4rem);
 }
 </style>
