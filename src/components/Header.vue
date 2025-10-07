@@ -36,6 +36,7 @@ header {
   width: auto;
   padding: 0.8rem 1rem;
   color: var(--text-color);
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.25);
 }
 
 .logo {

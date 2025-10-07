@@ -33,7 +33,7 @@ body {
   font-size: 1.5rem;
   font-weight: 500;
   background-color: var(--bg-color);
-  color: var(--white-color);
+  color: var(--text-color);
 }
 
 section {
@@ -49,6 +49,23 @@ button {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  color: var(--text-color);
+}
+
+h1 {
+  font-weight: 600;
+  font-size: 11rem;
+  line-height: 0.75;
+}
+h2 {
+  font-weight: 600;
+  font-size: 5rem;
+  color: var(--white-color);
+}
+h3 {
+  font-size: 3.8rem;
+  font-weight: 600;
+  color: var(--white-color);
 }
 
 .u-card-border-gradient {
@@ -56,11 +73,12 @@ button {
   --u-card-transparent-percent: 25%;
   border-radius: var(--u-card-border-radius);
   background-color: var(--blur-bg-color);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
 }
 .u-card-border-gradient::before {
   content: '';
   position: absolute;
+  z-index: -1;
   inset: 0;
   border-radius: var(--u-card-border-radius);
   padding: 1px;
