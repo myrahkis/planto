@@ -22,10 +22,10 @@
     <div class="cell3">
       <p class="footer-heading">Quick Link's</p>
       <ul class="nav-links">
-        <li>Home</li>
-        <li>Type's Of Plants</li>
-        <li>Contacts</li>
-        <li>Privacy</li>
+        <li class="u-underline">Home</li>
+        <li class="u-underline">Type's Of Plants</li>
+        <li class="u-underline">Contacts</li>
+        <li class="u-underline">Privacy</li>
       </ul>
     </div>
     <div class="cell4">
@@ -87,8 +87,14 @@
   list-style: none;
 
   li {
+    cursor: pointer;
     font-size: 1.8rem;
     font-weight: 800;
+    transition: transform 0.2s;
+
+    &:hover {
+      transform: scale(1.1) rotate(-5deg);
+    }
   }
 }
 
@@ -131,6 +137,12 @@
   margin: 0.2rem;
   text-transform: uppercase;
   font-weight: 600;
+  transition: all 0.2s;
+
+  &:hover {
+    background-color: #9ec84b;
+    color: var(--bg-color);
+  }
 }
 
 .cell5 {

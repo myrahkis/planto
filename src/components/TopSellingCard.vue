@@ -10,7 +10,9 @@ const { card } = defineProps({ card: Array })
       <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
       <div class="card-footer">
         <p class="card-price">Rs. 359/-</p>
-        <button class="cart-btn"><img src="/src/assets/icons/cart-icon.svg" alt="" /></button>
+        <button class="cart-btn u-cart-btn-hover">
+          <img src="/src/assets/icons/cart-icon.svg" alt="" />
+        </button>
       </div>
     </div>
   </div>
@@ -53,7 +55,7 @@ const { card } = defineProps({ card: Array })
   border: 1px solid var(--white-color);
   border-radius: 1rem;
   padding: 0.8rem;
-  
+
   img {
     width: 2.5rem;
   }

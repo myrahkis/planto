@@ -56,7 +56,7 @@ import HeadingCorners from './HeadingCorners.vue'
           <p class="plants-cart-price">Rs. 599/-</p>
           <div class="plants-cart-btns">
             <button class="explore-btn">Explore</button>
-            <button class="plants-cart-btn">
+            <button class="plants-cart-btn u-cart-btn-hover">
               <img src="/src/assets/icons/cart-icon.svg" alt="" />
             </button>
           </div>
@@ -73,7 +73,7 @@ import HeadingCorners from './HeadingCorners.vue'
           <p class="plants-cart-price">Rs. 579/-</p>
           <div class="plants-cart-btns">
             <button class="explore-btn">Explore</button>
-            <button class="plants-cart-btn">
+            <button class="plants-cart-btn u-cart-btn-hover">
               <img src="/src/assets/icons/cart-icon.svg" alt="" />
             </button>
           </div>
@@ -109,23 +109,26 @@ import HeadingCorners from './HeadingCorners.vue'
   display: flex;
   gap: 2.5rem;
 }
-.explore-btn {
-  align-items: center;
-  font-size: 2.1rem;
-  letter-spacing: 0.1rem;
-  font-weight: 400;
-  padding: 0.8rem 2.5rem;
-  width: fit-content;
-  border: 2px solid var(--text-color);
-  border-radius: 1rem;
-}
 .play-btn {
   display: inline-flex;
   align-items: center;
   gap: 1rem;
+  border-radius: 2.5rem;
+  border-top: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s;
 
   span {
     font-size: 1.5rem;
+    margin-right: 1.5rem;
+  }
+
+  &:hover {
+    background-color: #50790b;
+    border-top: 1px solid var(--text-color);
+    border-right: 1px solid var(--text-color);
+    border-bottom: 1px solid var(--text-color);
   }
 }
 .play-icon {

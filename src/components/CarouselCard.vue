@@ -49,7 +49,7 @@ const emit = defineEmits(['prev', 'next'])
             </svg>
           </button>
           <p>
-            {{ curIdx }} / <small>{{ cardsLength }}</small>
+            {{ curIdx + 1 }} / <small>{{ cardsLength }}</small>
           </p>
           <button @click="emit('next')">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

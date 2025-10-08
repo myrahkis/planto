@@ -10,15 +10,21 @@
       <p style="font-weight: 900">Planto.</p>
     </div>
     <ul class="nav-list">
-      <li>Home</li>
-      <li>Plant types</li>
-      <li>More</li>
-      <li>Contact</li>
+      <li class="u-underline">Home</li>
+      <li class="u-underline">Plant types</li>
+      <li class="u-underline">More</li>
+      <li class="u-underline">Contact</li>
     </ul>
     <div class="nav-tools">
-      <button><img class="tool-icon" src="/src/assets/icons/search-icon.svg" alt="" /></button>
-      <button><img class="tool-icon" src="/src/assets/icons/cart-icon.svg" alt="" /></button>
-      <button><img class="tool-icon" src="/src/assets/icons/menu-icon.svg" alt="" /></button>
+      <button class="tool-btn">
+        <img class="tool-icon" src="/src/assets/icons/search-icon.svg" alt="" />
+      </button>
+      <button class="tool-btn">
+        <img class="tool-icon" src="/src/assets/icons/cart-icon.svg" alt="" />
+      </button>
+      <button class="tool-btn">
+        <img class="tool-icon" src="/src/assets/icons/menu-icon.svg" alt="" />
+      </button>
     </div>
   </header>
 </template>
@@ -56,7 +62,18 @@ header {
 
 .nav-tools {
   display: flex;
-  gap: 2.5rem;
+  gap: 0.5rem;
+}
+.tool-btn {
+  border-radius: 1rem;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+
+  &:hover {
+    border: 1px solid #9ec84b;
+    background-color: var(--bg-color);
+  }
 }
 .tool-icon {
   width: 1.8rem;
