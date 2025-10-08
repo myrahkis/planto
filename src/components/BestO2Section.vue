@@ -19,20 +19,16 @@ const bestO2Plants = [
 ]
 
 const curIdx = ref(0)
-const direction = ref('next')
 
 const visibleCard = computed(() => {
   return bestO2Plants[curIdx.value]
 })
-const transitionName = computed(() => (direction.value === 'next' ? 'slide-left' : 'slide-right'))
 
 function nextCardHandle() {
   curIdx.value = (curIdx.value + 1) % bestO2Plants.length
-  direction.value = 'next'
 }
 function prevCardHandle() {
   curIdx.value = (curIdx.value - 1 + bestO2Plants.length) % bestO2Plants.length
-  direction.value = 'prev'
 }
 </script>
 
