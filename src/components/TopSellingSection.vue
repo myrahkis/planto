@@ -30,10 +30,7 @@ const plantsData = [
   flex-direction: column;
   width: 100%;
 }
-.heading-corners {
-  position: relative;
-  width: fit-content;
-}
+
 .plants-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

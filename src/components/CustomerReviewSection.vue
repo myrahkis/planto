@@ -46,11 +46,6 @@ const feedbacks = [
   width: 100%;
 }
 
-.heading-corners {
-  position: relative;
-  width: fit-content;
-}
-
 .feedbacks-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

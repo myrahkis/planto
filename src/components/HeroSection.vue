@@ -41,7 +41,7 @@ import HeadingCorners from './HeadingCorners.vue'
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt...
       </p>
     </div>
-    <div class="heading-corners">
+    <div class="hero-heading-corners">
       <HeadingCorners headingText="Our Top Sellings" />
     </div>
     <div class="plants-wrapper">
@@ -186,7 +186,7 @@ import HeadingCorners from './HeadingCorners.vue'
   }
 }
 
-.heading-corners {
+.hero-heading-corners {
   position: absolute;
   top: 44%;
   left: 50%;

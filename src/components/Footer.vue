@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <footer>
+  <footer class="footer">
     <div class="col1">
       <div>logoname</div>
       <p>
@@ -29,3 +29,10 @@
     </div>
   </footer>
 </template>
+
+<style scoped>
+.footer {
+  margin-top: var(--vert-section-padding);
+  padding: var(--horiz-section-padding);
+}
+</style>
