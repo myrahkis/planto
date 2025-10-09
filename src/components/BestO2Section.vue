@@ -53,7 +53,6 @@ function prevCardHandle() {
           :key="curIdx"
           :curIdx="curIdx"
           :cardsLength="bestO2Plants.length"
-          :transitionName="transitionName"
           @prev="prevCardHandle"
           @next="nextCardHandle"
         />

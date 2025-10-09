@@ -1,5 +1,26 @@
 <script setup>
+import { animate, svg } from 'animejs'
+import { onMounted } from 'vue'
+
 const { headingText } = defineProps({ headingText: { type: String, required: true } })
+
+onMounted(() => {
+  animate(svg.createDrawable('.corner--left path'), {
+    draw: ['0 0', '0 1', '1 1'],
+    ease: 'inOutQuad',
+    duration: 2000,
+    alternate: true,
+    loop: true,
+  })
+
+  animate(svg.createDrawable('.corner--right path'), {
+    draw: ['0 0', '0 1', '1 1'],
+    ease: 'inOutQuad',
+    duration: 2000,
+    alternate: true,
+    loop: true,
+  })
+})
 </script>
 
 <template>
@@ -12,14 +33,17 @@ const { headingText } = defineProps({ headingText: { type: String, required: tru
           <stop offset="1" stop-color="#50790B" />
         </radialGradient>
       </defs>
-      <path
-        d="M20 70 L20 30 A30 30 0 0 1 50 0 L95 0"
-        fill="none"
-        stroke="url(#g1)"
-        stroke-width="6"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-      />
+      <g transform="rotate(180 68 40) scale(-1,1) translate(-144,0)">
+        <path
+          class="line"
+          d="M20 70 L20 30 A30 30 0 0 1 50 0 L95 0"
+          fill="none"
+          stroke="url(#g1)"
+          stroke-width="6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        />
+      </g>
     </svg>
   </div>
   <h2>{{ headingText }}</h2>
@@ -66,8 +90,8 @@ const { headingText } = defineProps({ headingText: { type: String, required: tru
 .corner--left {
   bottom: -1rem;
   left: -3.5rem;
-  transform: scaleX(-1) rotate(180deg);
 }
+
 .corner--right {
   top: -1rem;
   right: -3.5rem;

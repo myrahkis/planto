@@ -1,5 +1,5 @@
 <script setup>
-const { card } = defineProps({ card: Array })
+const { card } = defineProps({ card: Object })
 </script>
 
 <template>

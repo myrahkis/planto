@@ -1,5 +1,21 @@
 <script setup>
+import { onMounted } from 'vue'
 import HeadingCorners from './HeadingCorners.vue'
+import { animate, onScroll } from 'animejs'
+
+onMounted(() => {
+  animate('.trendy-cards', {
+    opacity: { from: 0.5 },
+    translateX: { from: '10rem' },
+    duration: 1000,
+  })
+
+  animate('.hero-feedback', {
+    opacity: { from: 0.5 },
+    translateX: { from: '-10rem' },
+    duration: 1000,
+  })
+})
 </script>
 
 <template>
@@ -45,7 +61,10 @@ import HeadingCorners from './HeadingCorners.vue'
       <HeadingCorners headingText="Our Top Sellings" />
     </div>
     <div class="plants-wrapper">
-      <div class="plants-cart-info u-card-border-gradient" style="--u-card-border-radius: 12rem">
+      <div
+        class="plants-cart-info cart--1 u-card-border-gradient"
+        style="--u-card-border-radius: 12rem"
+      >
         <img src="/src/assets/images/medium-plants/m-plant-1.png" alt="" />
         <div class="plants-cart-info-wrapper">
           <h3>For Small Decs Ai Plat</h3>
@@ -62,7 +81,10 @@ import HeadingCorners from './HeadingCorners.vue'
           </div>
         </div>
       </div>
-      <div class="plants-cart-info u-card-border-gradient" style="--u-card-border-radius: 12rem">
+      <div
+        class="plants-cart-info cart--2 u-card-border-gradient"
+        style="--u-card-border-radius: 12rem"
+      >
         <img src="/src/assets/images/medium-plants/m-plant-2.png" alt="" />
         <div class="plants-cart-info-wrapper">
           <h3>For Fresh Decs Ai Plat</h3>

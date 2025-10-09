@@ -1,6 +1,8 @@
 <script setup>
+import { onMounted, onUnmounted, ref } from 'vue'
 import HeadingCorners from './HeadingCorners.vue'
 import TopSellingCard from './TopSellingCard.vue'
+import { animate, onScroll, stagger } from 'animejs'
 
 const plantsData = [
   { imgPath: '/src/assets/images/small-plants/sm-plant-6.png', name: 'Aglaonema' },
@@ -10,10 +12,31 @@ const plantsData = [
   { imgPath: '/src/assets/images/small-plants/sm-plant-3.png', name: 'Dracaena fragrans' },
   { imgPath: '/src/assets/images/small-plants/sm-plant-5.png', name: 'Sansevieria' },
 ]
+
+onMounted(() => {
+  const cards = document.querySelectorAll('.plants-cards-grid > *')
+
+  if (!cards.length) return
+
+  animate(cards, {
+    opacity: { from: 0.5 },
+    x: { from: '15rem', to: 0 },
+    duration: 1000,
+    delay: stagger(130),
+    easing: 'easeOutCubic',
+    autoplay: onScroll({
+      container: document.body,
+      target: '.top-selling-section',
+      enter: 'bottom top',
+      leave: 'top bottom',
+      debug: true,
+    }),
+  })
+})
 </script>
 
 <template>
-  <section class="top-selling-section">
+  <section class="top-selling-section" ref="root">
     <div class="heading-corners">
       <HeadingCorners headingText="Our Top Selling"></HeadingCorners>
     </div>
