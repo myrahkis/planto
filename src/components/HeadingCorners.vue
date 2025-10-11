@@ -86,6 +86,7 @@ onMounted(() => {
   width: 10rem;
   height: 5rem;
   pointer-events: none;
+  transform-origin: 0 0;
 }
 .corner--left {
   bottom: -1rem;
@@ -95,5 +96,19 @@ onMounted(() => {
 .corner--right {
   top: -1rem;
   right: -3.5rem;
+}
+
+@media (max-width: 762px) {
+  .corner {
+    transform: scaleX(0.6) scaleY(0.6);
+  }
+  .corner--left {
+    bottom: -1.5rem;
+    left: -2.5rem;
+  }
+  .corner--right {
+    top: 0;
+    right: -6.5rem;
+  }
 }
 </style>

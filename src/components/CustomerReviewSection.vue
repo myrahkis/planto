@@ -1,6 +1,8 @@
 <script setup>
+import { onMounted } from 'vue'
 import FeedbackCard from './FeedbackCard.vue'
 import HeadingCorners from './HeadingCorners.vue'
+import { animate, onScroll, stagger } from 'animejs'
 
 const feedbacks = [
   {
@@ -25,6 +27,26 @@ const feedbacks = [
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
   },
 ]
+
+onMounted(() => {
+  const cards = document.querySelectorAll('.feedbacks-grid > *')
+
+  if (!cards.length) return
+
+  animate(cards, {
+    opacity: { from: 0.5 },
+    x: { from: stagger(['-20rem', '20rem']) },
+    easing: 'easeOutCubic',
+    autoplay: onScroll({
+      container: document.body,
+      target: '.customer-review-section',
+      enter: 'bottom+=150 top-=50',
+      leave: 'top bottom',
+      sync: 'inOutCirc',
+      // debug: true,
+    }),
+  })
+})
 </script>
 
 <template>

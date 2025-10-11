@@ -29,7 +29,7 @@ onMounted(() => {
       target: '.top-selling-section',
       enter: 'bottom top',
       leave: 'top bottom',
-      debug: true,
+      // debug: true,
     }),
   })
 })
