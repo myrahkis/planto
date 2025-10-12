@@ -77,6 +77,7 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     margin-top: var(--vert-section-padding);
+    width: fit-content;
   }
 }
 </style>
