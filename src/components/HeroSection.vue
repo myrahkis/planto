@@ -321,6 +321,22 @@ onMounted(() => {
   }
 }
 
+@media (max-width: 1480px) {
+  .plants-cart-info {
+    padding: clamp(1.5rem, 3vw, 4rem) clamp(1rem, 3vw, 3rem);
+
+    img {
+      margin-top: -9%;
+      width: clamp(34rem, 33vw, 50rem);
+    }
+  }
+  .plants-cart-btn {
+    img {
+      width: clamp(2rem, 3vw, 4rem);
+    }
+  }
+}
+
 @media (max-width: 1250px) {
   .hero-section {
     padding-top: clamp(8rem, 17vw, 20rem);

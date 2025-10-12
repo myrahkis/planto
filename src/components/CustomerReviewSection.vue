@@ -62,6 +62,7 @@ onMounted(() => {
 
 <style scoped>
 .customer-review-section {
+  overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;

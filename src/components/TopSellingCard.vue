@@ -60,4 +60,44 @@ const { card } = defineProps({ card: Object })
     width: 2.5rem;
   }
 }
+
+@media (max-width: 1480px) {
+  .top-selling-card {
+    img {
+      margin-top: -15%;
+      width: clamp(13rem, 25vw, 35.75rem);
+      height: clamp(13rem, 25vw, 35.7rem);
+    }
+  }
+  .cart-btn {
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+@media (max-width: 1100px) {
+  .card-name,
+  .card-price {
+    font-size: clamp(1.8rem, 2vw + 0.5rem, 3.8rem);
+  }
+  .card-desc {
+    font-size: clamp(1.4rem, 1.2vw + 0.5rem, 2.4rem);
+  }
+}
+@media (max-width: 762px) {
+  .top-selling-card {
+    img {
+      margin-top: -23%;
+      width: clamp(20rem, 5vw, 20.5rem);
+      height: clamp(20rem, 5vw, 20rem);
+    }
+  }
+  .cart-btn {
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
 </style>

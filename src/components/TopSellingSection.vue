@@ -63,4 +63,20 @@ onMounted(() => {
   width: 100%;
   margin-top: calc(var(--vert-section-padding) + 4rem);
 }
+
+@media (max-width: 1480px) {
+  .plants-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: clamp(5rem, 5vw + 1rem, 12rem);
+  }
+}
+
+@media (max-width: 762px) {
+  .plants-cards-grid {
+    display: flex;
+    flex-direction: column;
+    margin-top: var(--vert-section-padding);
+  }
+}
 </style>

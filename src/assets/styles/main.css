@@ -176,9 +176,16 @@ p {
   }
 }
 
+
+@media (max-width: 1100px) {
+  :root {
+    --vert-section-padding: 8rem;
+  }
+}
+
 @media (max-width: 762px) {
   :root {
     --horiz-section-padding: 2rem;
-    --vert-section-padding: 12rem;
+    /* --vert-section-padding: 9rem; */
   }
 }
