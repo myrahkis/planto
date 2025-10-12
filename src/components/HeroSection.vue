@@ -533,4 +533,11 @@ onMounted(() => {
     }
   }
 }
+
+@media (max-width: 380px) {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>

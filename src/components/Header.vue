@@ -78,4 +78,10 @@ header {
 .tool-icon {
   width: 1.8rem;
 }
+
+@media (max-width: 762px) {
+  .nav-list {
+    display: none;
+  }
+}
 </style>

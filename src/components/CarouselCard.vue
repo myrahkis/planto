@@ -33,6 +33,8 @@ const { card } = defineProps({
 
   img {
     margin-top: -8%;
+    width: clamp(20rem, 40vw, 60rem);
+    height: clamp(20rem, 40vw, 60rem);
   }
 }
 
@@ -42,12 +44,52 @@ const { card } = defineProps({
   gap: 2.5rem;
 
   p {
-    font-size: 2rem;
+    font-size: clamp(1.2rem, 1.3vw, 2rem);
   }
 }
 
 .card-footer {
   display: flex;
   justify-content: space-between;
+}
+
+@media (max-width: 900px) {
+  .carousel-card {
+    align-items: start;
+    min-height: clamp(20rem, 40vw, 60rem);
+    padding: clamp(1rem, 2vw + 1rem, 3rem) clamp(2rem, 4vw, 6rem);
+    padding-left: 0;
+
+    img {
+      align-self: center;
+    }
+  }
+
+  .card-info-wrapper {
+    align-self: center;
+    gap: clamp(1rem, 1.8vw, 2.5rem);
+
+    p {
+      font-size: clamp(1rem, 1.3vw, 1.5rem);
+    }
+  }
+}
+@media (max-width: 670px) {
+  .carousel-card {
+    flex-direction: column;
+    padding: clamp(4rem, 4vw, 6rem);
+    width: 50rem;
+  }
+  .card-info-wrapper {
+    p {
+      font-size: clamp(1.1rem, 1.3vw, 1.5rem);
+    }
+  }
+}
+@media (max-width: 670px) {
+  .carousel-card {
+    padding: clamp(3rem, 4vw, 4rem);
+    width: 100%;
+  }
 }
 </style>

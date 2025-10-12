@@ -165,6 +165,7 @@ function prevCardHandle() {
 
 <style scoped>
 .best-o2-section {
+  overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -216,35 +217,22 @@ function prevCardHandle() {
   opacity: 1;
 }
 
-/* .next-enter-active,
-.next-leave-active,
-.prev-enter-active,
-.prev-leave-active {
-  transition: transform 0.4s ease-in;
-  will-change: transform;
+@media (max-width: 762px) {
+  .dot {
+    width: 5px;
+    height: 4px;
+  }
+  .dot.active {
+    width: 16px;
+    height: 4px;
+  }
+  .carousel-nav {
+    p {
+      font-size: clamp(1rem, 1vw + 0.8rem, 1.8rem);
+    }
+    button svg {
+      width: clamp(1rem, 1vw + 0.8rem, 1.8rem);
+    }
+  }
 }
-.next-enter-from {
-  transform: translateX(30px) scale(0.99);
-}
-.next-enter-to {
-  transform: translateX(0) scale(1);
-}
-.next-leave-from {
-  transform: translateX(0) scale(1);
-}
-.next-leave-to {
-  transform: translateX(-30px) scale(0.97);
-}
-.prev-enter-from {
-  transform: translateX(-30px) scale(0.99);
-}
-.prev-enter-to {
-  transform: translateX(0) scale(1);
-}
-.prev-leave-from {
-  transform: translateX(0) scale(1);
-}
-.prev-leave-to {
-  transform: translateX(30px) scale(0.97);
-} */
 </style>

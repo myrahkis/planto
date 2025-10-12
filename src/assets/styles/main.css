@@ -82,6 +82,7 @@ h3 {
   font-size: clamp(1.6rem, 2.5vw, 3.8rem);
   font-weight: 600;
   color: var(--white-color);
+  line-height: 1.18;
 }
 p {
   line-height: 1.18;
@@ -181,13 +182,27 @@ p {
     --vert-section-padding: 8rem;
   }
 }
+@media (max-width: 900px) {
+  h3 {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+  }
+  .explore-btn {
+    padding: clamp(0.5rem, 1vw, 0.8rem) clamp(1.3rem, 1.5vw, 1.8rem);
+    /* font-size: clamp(1.2rem, 1vw, 1.8rem); */
+  }
+}
 @media (max-width: 762px) {
   :root {
     --horiz-section-padding: 2rem;
-  }
-}
-@media (max-width: 560px) {
-  :root {
     --vert-section-padding: 5rem;
   }
+}
+
+@media (max-width: 670px) {
+  h3 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+  }
+  /* .explore-btn {
+    font-size: clamp(1.5rem, 1vw, 1.8rem);
+  } */
 }

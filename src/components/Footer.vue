@@ -155,4 +155,11 @@
   font-weight: 800;
   margin-bottom: 2.5rem;
 }
+
+@media (max-width: 600px) {
+  .footer-grid {
+    display: flex;
+    flex-direction: column;
+  }
+}
 </style>
