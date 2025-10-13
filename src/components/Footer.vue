@@ -156,6 +156,12 @@
   margin-bottom: 2.5rem;
 }
 
+@media (min-width: 1600px) {
+  .footer-grid {
+    margin-top: var(--vert-section-padding);
+    padding: 12rem var(--horiz-section-padding);
+  }
+}
 @media (max-width: 1100px) {
   .footer-grid {
     grid-template-columns: 1fr auto 1fr;

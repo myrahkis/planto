@@ -57,7 +57,8 @@ onMounted(() => {
     <div class="hero-info-block">
       <h1 class="hero-heading">Breath Natureal</h1>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <br />
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        <br class="pc-br" />
         incididunt ut labore et dolore magna aliqua.
       </p>
       <div class="info-btns-wrapper">
@@ -320,6 +321,31 @@ onMounted(() => {
   }
 }
 
+@media (min-width: 1600px) {
+  .hero-section {
+    padding-top: clamp(20rem, 17vw, 25rem);
+  }
+  .trendy-cards {
+    top: clamp(20rem, 17vw, 25rem);
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --horiz-section-padding: 5rem;
+    --vert-section-padding: 12rem;
+  }
+}
+@media (min-width: 2560px) {
+  :root {
+    --horiz-main-padding: 40rem;
+  }
+}
+@media (min-width: 4000px) {
+  :root {
+    --horiz-main-padding: 70rem;
+  }
+}
+
 @media (max-width: 1480px) {
   .plants-cart-info {
     padding: clamp(1.5rem, 3vw, 4rem) clamp(1rem, 3vw, 3rem);
@@ -434,15 +460,24 @@ onMounted(() => {
 }
 
 @media (max-width: 762px) {
+  .pc-br {
+    display: none;
+  }
   .hero-section {
     display: grid;
     height: fit-content;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.1fr auto;
     grid-template-rows: 1fr 1fr 1.2fr auto;
     padding-top: clamp(13rem, 17vw, 20rem);
     background-repeat: no-repeat;
     row-gap: 2rem;
     column-gap: 1rem;
+  }
+
+  .hero-info-block {
+    p {
+      font-size: clamp(1.2rem, 1.2vw, 2.1rem);
+    }
   }
   .hero-info-block {
     grid-column: 1 / 1;
@@ -459,7 +494,7 @@ onMounted(() => {
 
     img {
       margin-top: -37%;
-      width: clamp(10rem, 15vw, 18rem);
+      width: clamp(15rem, 15vw, 18rem);
     }
   }
   .trendy-cards.u-card-border-gradient {
@@ -481,6 +516,10 @@ onMounted(() => {
     left: 0;
     grid-column: 1 / 1;
     grid-row: 2;
+    padding: clamp(1.5rem, 3vw, 3rem);
+  }
+  .ava-img {
+    width: clamp(3rem, 5vw, 6rem);
   }
   .hero-heading-corners {
     position: relative;
@@ -491,6 +530,7 @@ onMounted(() => {
     margin: 2rem auto;
     margin-top: 4rem;
     width: fit-content;
+    height: fit-content;
     grid-column: 1 / -1;
     grid-row: 3;
   }
@@ -508,10 +548,9 @@ onMounted(() => {
     --u-card-border-radius: 4rem !important;
   }
   .plants-cart-info {
-    flex-direction: column;
     align-items: center;
     gap: clamp(1.5rem, 4vw, 5rem);
-    padding: clamp(2rem, 3vw, 4rem) clamp(3rem, 3vw, 3rem);
+    padding: clamp(4rem, 3vw, 5rem);
 
     img {
       margin-top: -9%;
@@ -532,9 +571,53 @@ onMounted(() => {
     }
   }
 }
+@media (max-width: 560px) {
+  .hero-section {
+    /* padding-top: clamp(12rem, 17vw, 20rem); */
+    grid-template-rows: 1fr 1fr 1fr 1.2fr auto;
+  }
+  .plants-cart-info {
+    flex-direction: column;
+    padding: clamp(2rem, 3vw, 4rem) clamp(3rem, 3vw, 3rem);
+  }
+  .hero-info-block {
+    backdrop-filter: blur(2px);
+    padding: 1rem;
+    border-radius: 3rem;
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+  .trendy-cards {
+    grid-column: 2 / -1;
+    grid-row: 2;
+
+    img {
+      width: clamp(10rem, 15vw, 14rem);
+    }
+  }
+  .trendy-plant-name {
+    font-size: clamp(1.2rem, 1.8vw, 1.8rem);
+  }
+  .trendy-heading {
+    font-size: clamp(0.8rem, 1.2vw, 1.4rem);
+  }
+  .hero-feedback {
+    grid-column: 1 / 1;
+    grid-row: 3;
+  }
+  .hero-heading-corners {
+    grid-column: 1 / -1;
+    grid-row: 4;
+  }
+  .plants-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 5 / -1;
+  }
+}
 
 @media (max-width: 380px) {
   .hero-section {
+    padding-top: clamp(10rem, 17vw, 15rem);
     display: flex;
     flex-direction: column;
   }

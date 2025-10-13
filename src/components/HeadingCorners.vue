@@ -94,7 +94,7 @@ onMounted(() => {
 }
 
 .corner--right {
-  top: -1rem;
+  top: -1.5rem;
   right: -3.5rem;
 }
 
@@ -103,11 +103,11 @@ onMounted(() => {
     transform: scaleX(0.6) scaleY(0.6);
   }
   .corner--left {
-    bottom: -1.5rem;
+    bottom: -3rem;
     left: -2.5rem;
   }
   .corner--right {
-    top: 0;
+    top: -1.5rem;
     right: -6.5rem;
   }
 }

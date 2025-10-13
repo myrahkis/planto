@@ -95,8 +95,8 @@ const { card } = defineProps({ card: Object })
   }
   .cart-btn {
     img {
-      width: 2.5rem;
-      height: 2.5rem;
+      width: clamp(1.5rem, 1vw + 1rem, 2.5rem);
+      height: clamp(1.5rem, 1vw + 1rem, 2.5rem);
     }
   }
 }

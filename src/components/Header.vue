@@ -79,6 +79,28 @@ header {
   width: 1.8rem;
 }
 
+@media (min-width: 1600px) {
+  header {
+    top: 3rem;
+  }
+}
+@media (min-width: 1920px) {
+  :root {
+    --horiz-section-padding: 5rem;
+    --vert-section-padding: 12rem;
+  }
+}
+@media (min-width: 2560px) {
+  :root {
+    --horiz-main-padding: 40rem;
+  }
+}
+@media (min-width: 4000px) {
+  :root {
+    --horiz-main-padding: 70rem;
+  }
+}
+
 @media (max-width: 762px) {
   .nav-list {
     display: none;

@@ -77,8 +77,13 @@ onMounted(() => {
   .plants-cards-grid {
     display: flex;
     flex-direction: column;
-    margin-top: var(--vert-section-padding);
+    margin-top: calc(var(--vert-section-padding) + 2rem);
     width: fit-content;
+  }
+}
+@media (max-width: 560px) {
+  .plants-cards-grid {
+    margin-top: var(--vert-section-padding);
   }
 }
 </style>
