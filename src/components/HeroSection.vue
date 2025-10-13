@@ -25,7 +25,7 @@ onMounted(() => {
 
   animate('.cart--1', {
     opacity: { from: 0.5 },
-    x: { from: '10rem', to: 0 },
+    translateX: { from: '10rem', to: 0 },
     duration: 1000,
     easing: 'easeOutCubic',
     autoplay: onScroll({
@@ -38,7 +38,7 @@ onMounted(() => {
   })
   animate('.cart--2', {
     opacity: { from: 0.5 },
-    x: { from: '-10rem', to: 0 },
+    translateX: { from: '-10rem', to: 0 },
     duration: 1000,
     easing: 'easeOutCubic',
     autoplay: onScroll({
@@ -63,13 +63,13 @@ onMounted(() => {
       <div class="info-btns-wrapper">
         <button class="explore-btn">Explore</button>
         <button class="play-btn">
-          <img class="play-icon" src="/src/assets/icons/play-icon.svg" alt="" />
+          <img class="play-icon" src="/icons/play-icon.svg" alt="" />
           <span>Live Demo...</span>
         </button>
       </div>
     </div>
     <div class="trendy-cards u-card-border-gradient" style="--u-card-border-radius: 6rem">
-      <img src="/src/assets/images/small-plants/sm-plant-6.png" alt="" />
+      <img src="/images/small-plants/sm-plant-6.png" alt="" />
       <div class="trendy-cards-info-wrapper">
         <p class="trendy-heading">Trendy House Plant</p>
         <p class="trendy-plant-name">Calathea plant</p>
@@ -78,12 +78,10 @@ onMounted(() => {
     </div>
     <div class="hero-feedback u-card-border-gradient">
       <div class="feedback-header">
-        <img class="ava-img" src="/src/assets/images/avas/ava-2.png" alt="" />
+        <img class="ava-img" src="/images/avas/ava-2.png" alt="" />
         <div class="feedback-header-info">
           <p>Alena Patel</p>
-          <span
-            ><img v-for="star in 5" :key="star" src="/src/assets/icons/star-icon.svg" alt=""
-          /></span>
+          <span><img v-for="star in 5" :key="star" src="/icons/star-icon.svg" alt="" /></span>
         </div>
       </div>
       <p>
@@ -98,7 +96,7 @@ onMounted(() => {
         class="plants-cart-info cart--1 u-card-border-gradient"
         style="--u-card-border-radius: 12rem"
       >
-        <img src="/src/assets/images/medium-plants/m-plant-1.png" alt="" />
+        <img src="/images/medium-plants/m-plant-1.png" alt="" />
         <div class="plants-cart-info-wrapper">
           <h3>For Small Decs Ai Plat</h3>
           <p>
@@ -109,7 +107,7 @@ onMounted(() => {
           <div class="plants-cart-btns">
             <button class="explore-btn">Explore</button>
             <button class="plants-cart-btn u-cart-btn-hover">
-              <img src="/src/assets/icons/cart-icon.svg" alt="" />
+              <img src="/icons/cart-icon.svg" alt="" />
             </button>
           </div>
         </div>
@@ -118,7 +116,7 @@ onMounted(() => {
         class="plants-cart-info cart--2 u-card-border-gradient"
         style="--u-card-border-radius: 12rem"
       >
-        <img src="/src/assets/images/medium-plants/m-plant-2.png" alt="" />
+        <img src="/images/medium-plants/m-plant-2.png" alt="" />
         <div class="plants-cart-info-wrapper">
           <h3>For Fresh Decs Ai Plat</h3>
           <p>
@@ -129,7 +127,7 @@ onMounted(() => {
           <div class="plants-cart-btns">
             <button class="explore-btn">Explore</button>
             <button class="plants-cart-btn u-cart-btn-hover">
-              <img src="/src/assets/icons/cart-icon.svg" alt="" />
+              <img src="/icons/cart-icon.svg" alt="" />
             </button>
           </div>
         </div>
@@ -140,13 +138,13 @@ onMounted(() => {
 
 <style scoped>
 .hero-section {
-  overflow: hidden;
   position: relative;
   width: 100%;
-  background: url('/src/assets/images/hero-bg.jpg');
+  background: url('/images/hero-bg.jpg');
   aspect-ratio: 1080 / 1620;
   background-size: 100%;
   padding-top: clamp(8rem, 17vw, 20rem);
+  height: auto;
 }
 
 .hero-info-block {

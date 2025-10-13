@@ -11,7 +11,7 @@ const { card } = defineProps({ card: Object })
       <div class="card-footer">
         <p class="card-price">Rs. 359/-</p>
         <button class="cart-btn u-cart-btn-hover">
-          <img src="/src/assets/icons/cart-icon.svg" alt="" />
+          <img src="/icons/cart-icon.svg" alt="" />
         </button>
       </div>
     </div>

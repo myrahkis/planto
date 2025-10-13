@@ -11,7 +11,7 @@ const { card } = defineProps({ card: Object })
         <span
           ><img
             class="star"
-            src="/src/assets/icons/star-icon.svg"
+            src="/icons/star-icon.svg"
             alt=""
             v-for="star in card.starsAmount"
             :key="star"

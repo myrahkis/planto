@@ -6,7 +6,7 @@
     style="--u-card-border-radius: 1.3rem; --u-card-transparent-percent: 45%"
   >
     <div class="logo">
-      <img src="/src/assets/icons/planto-logo.svg" class="logo-icon" alt="" />
+      <img src="/icons/planto-logo.svg" class="logo-icon" alt="" />
       <p style="font-weight: 900">Planto.</p>
     </div>
     <ul class="nav-list">
@@ -17,13 +17,13 @@
     </ul>
     <div class="nav-tools">
       <button class="tool-btn">
-        <img class="tool-icon" src="/src/assets/icons/search-icon.svg" alt="" />
+        <img class="tool-icon" src="/icons/search-icon.svg" alt="" />
       </button>
       <button class="tool-btn">
-        <img class="tool-icon" src="/src/assets/icons/cart-icon.svg" alt="" />
+        <img class="tool-icon" src="/icons/cart-icon.svg" alt="" />
       </button>
       <button class="tool-btn">
-        <img class="tool-icon" src="/src/assets/icons/menu-icon.svg" alt="" />
+        <img class="tool-icon" src="/icons/menu-icon.svg" alt="" />
       </button>
     </div>
   </header>

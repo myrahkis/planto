@@ -1,16 +1,16 @@
 <script setup>
-import { onMounted, onUnmounted, ref } from 'vue'
+import { onMounted } from 'vue'
 import HeadingCorners from './HeadingCorners.vue'
 import TopSellingCard from './TopSellingCard.vue'
 import { animate, onScroll, stagger } from 'animejs'
 
 const plantsData = [
-  { imgPath: '/src/assets/images/small-plants/sm-plant-6.png', name: 'Aglaonema' },
-  { imgPath: '/src/assets/images/small-plants/sm-plant-2.png', name: 'Peperomia obtusifolia' },
-  { imgPath: '/src/assets/images/small-plants/sm-plant-4.png', name: 'Cactus' },
-  { imgPath: '/src/assets/images/small-plants/sm-plant-1.png', name: 'Monstera deliciosa' },
-  { imgPath: '/src/assets/images/small-plants/sm-plant-3.png', name: 'Dracaena fragrans' },
-  { imgPath: '/src/assets/images/small-plants/sm-plant-5.png', name: 'Sansevieria' },
+  { imgPath: 'images/small-plants/sm-plant-6.png', name: 'Aglaonema' },
+  { imgPath: 'images/small-plants/sm-plant-2.png', name: 'Peperomia obtusifolia' },
+  { imgPath: 'images/small-plants/sm-plant-4.png', name: 'Cactus' },
+  { imgPath: 'images/small-plants/sm-plant-1.png', name: 'Monstera deliciosa' },
+  { imgPath: 'images/small-plants/sm-plant-3.png', name: 'Dracaena fragrans' },
+  { imgPath: 'images/small-plants/sm-plant-5.png', name: 'Sansevieria' },
 ]
 
 onMounted(() => {

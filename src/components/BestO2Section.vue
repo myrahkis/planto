@@ -6,19 +6,19 @@ import HeadingCorners from './HeadingCorners.vue'
 
 const bestO2Plants = [
   {
-    imgPath: '/src/assets/images/big-plants/l-plant-1.png',
+    imgPath: 'images/big-plants/l-plant-1.png',
     heading: 'We Have Small And Best O2 Plants Collection’s',
     p1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
     p2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
   },
   {
-    imgPath: '/src/assets/images/big-plants/l-plant-2.png',
+    imgPath: 'images/big-plants/l-plant-2.png',
     heading: 'Lorem ipsum dolor sit amet, adipisicing elit',
     p1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
     p2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
   },
   {
-    imgPath: '/src/assets/images/big-plants/l-plant-1.png',
+    imgPath: 'images/big-plants/l-plant-1.png',
     heading: 'Maxime aspernatur debitis dolore incidunt!',
     p1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
     p2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',

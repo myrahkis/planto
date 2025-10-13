@@ -4,7 +4,7 @@
   <footer class="footer-grid">
     <div class="cell1">
       <div class="logoname">
-        <img src="/src/assets/icons/planto-logo.svg" alt="" />
+        <img src="/icons/planto-logo.svg" alt="" />
         <p>Planto.</p>
       </div>
       <p>
