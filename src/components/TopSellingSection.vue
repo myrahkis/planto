@@ -48,6 +48,7 @@ onMounted(() => {
 
 <style scoped>
 .top-selling-section {
+  overflow: hidden;
   display: flex;
   align-items: center;
   flex-direction: column;

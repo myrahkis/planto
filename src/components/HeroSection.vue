@@ -140,6 +140,7 @@ onMounted(() => {
 
 <style scoped>
 .hero-section {
+  overflow: hidden;
   position: relative;
   width: 100%;
   background: url('/src/assets/images/hero-bg.jpg');

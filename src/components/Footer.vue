@@ -156,10 +156,101 @@
   margin-bottom: 2.5rem;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1100px) {
   .footer-grid {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr auto 1fr;
+    gap: clamp(2rem, 3vw + 1.5rem, 5rem);
+  }
+  .logoname {
+    img {
+      width: clamp(3rem, 4vw + 1rem, 6rem);
+    }
+    p {
+      font-size: clamp(1.6rem, 2vw + 1rem, 3rem);
+    }
+  }
+  .socials {
+    /* gap: 3rem; */
+    li {
+      font-size: clamp(1rem, 1vw + 0.8rem, 1.8rem);
+    }
+  }
+  .footer-heading {
+    font-size: clamp(1.2rem, 1vw + 1rem, 2rem);
+    margin-bottom: clamp(1rem, 2vw + 0.5rem, 2.5rem);
+  }
+  .nav-links {
+    gap: clamp(0.8rem, 1vw + 0.4rem, 1.5rem);
+  }
+}
+@media (max-width: 920px) {
+  .footer-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
+  }
+  .cell1 {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
+  .cell2 {
+    grid-column: 1 / 2;
+    grid-row: 3;
+  }
+  .cell3 {
+    grid-column: 2 / -1;
+    grid-row: 1 / 3;
+  }
+  .cell4 {
+    grid-column: 1 / 2;
+    grid-row: 2 / 2;
+    margin-right: auto;
+  }
+  .email-input {
+    font-size: clamp(1rem, 0.8vw + 0.8rem, 1.5rem);
+    padding: clamp(0.6rem, 1vw + 0.4rem, 1rem) clamp(1rem, 2vw + 0.8rem, 1.5rem);
+  }
+  .subscribe-btn {
+    padding: clamp(0.6rem, 1vw + 0.4rem, 1rem);
+  }
+  .cell5 {
+    grid-column: 2 / -1;
+    grid-row: 3;
+  }
+}
+@media (max-width: 656px) {
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.6fr 1fr 0.6fr auto;
+    justify-items: start;
+  }
+  .cell1,
+  .cell3,
+  .cell4 {
+    grid-column: 1 / -1;
+  }
+  .cell1 {
+    grid-row: 1;
+    width: 70%;
+  }
+  .cell3 {
+    grid-row: 2;
+  }
+  .cell4 {
+    grid-row: 3;
+  }
+  .cell2 {
+    grid-column: 1 / 2;
+    grid-row: 4;
+  }
+  .cell5 {
+    grid-column: 2 / -1;
+    grid-row: 4;
+  }
+}
+@media (max-width: 375px) {
+  .cell1 {
+    width: 100%;
   }
 }
 </style>
