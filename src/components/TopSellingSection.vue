@@ -5,12 +5,12 @@ import TopSellingCard from './TopSellingCard.vue'
 import { animate, onScroll, stagger } from 'animejs'
 
 const plantsData = [
-  { imgPath: 'images/small-plants/sm-plant-6.png', name: 'Aglaonema' },
-  { imgPath: 'images/small-plants/sm-plant-2.png', name: 'Peperomia obtusifolia' },
-  { imgPath: 'images/small-plants/sm-plant-4.png', name: 'Cactus' },
-  { imgPath: 'images/small-plants/sm-plant-1.png', name: 'Monstera deliciosa' },
-  { imgPath: 'images/small-plants/sm-plant-3.png', name: 'Dracaena fragrans' },
-  { imgPath: 'images/small-plants/sm-plant-5.png', name: 'Sansevieria' },
+  { imgPath: 'images/small-plants/sm-plant-6.webp', name: 'Aglaonema' },
+  { imgPath: 'images/small-plants/sm-plant-2.webp', name: 'Peperomia obtusifolia' },
+  { imgPath: 'images/small-plants/sm-plant-4.webp', name: 'Cactus' },
+  { imgPath: 'images/small-plants/sm-plant-1.webp', name: 'Monstera deliciosa' },
+  { imgPath: 'images/small-plants/sm-plant-3.webp', name: 'Dracaena fragrans' },
+  { imgPath: 'images/small-plants/sm-plant-5.webp', name: 'Sansevieria' },
 ]
 
 onMounted(() => {
@@ -63,6 +63,14 @@ onMounted(() => {
   row-gap: 12rem;
   width: 100%;
   margin-top: calc(var(--vert-section-padding) + 4rem);
+}
+
+@media (min-width: 4000px) {
+  .plants-cards-grid {
+    column-gap: 5rem;
+    row-gap: 20rem;
+    margin-top: calc(var(--vert-section-padding) + 8rem);
+  }
 }
 
 @media (max-width: 1480px) {

@@ -53,6 +53,39 @@ const { card } = defineProps({
   justify-content: space-between;
 }
 
+@media (min-width: 1920px) {
+  .carousel-card {
+    img {
+      margin-top: -10%;
+      width: clamp(25rem, 38vw, 70rem);
+      height: clamp(25rem, 38vw, 70rem);
+    }
+  }
+  .card-info-wrapper {
+    p {
+      font-size: clamp(1.4rem, 1.1vw, 2.4rem);
+    }
+  }
+}
+@media (min-width: 4000px) {
+  .carousel-card {
+    padding: 5rem 9rem;
+    padding-left: 0;
+  }
+  .carousel-card {
+    img {
+      margin-top: -10%;
+      width: clamp(50rem, 40vw, 110rem);
+      height: clamp(50rem, 40vw, 110rem);
+    }
+  }
+  .card-info-wrapper {
+    p {
+      font-size: clamp(2rem, 2vw, 3.6rem);
+    }
+  }
+}
+
 @media (max-width: 900px) {
   .carousel-card {
     align-items: start;

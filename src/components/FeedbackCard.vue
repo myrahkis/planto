@@ -46,6 +46,47 @@ const { card } = defineProps({ card: Object })
   font-weight: 400;
 }
 
+@media (min-width: 1920px) {
+  .feedback-card-header {
+    gap: clamp(1rem, 0.8vw + 0.5rem, 2.5rem);
+
+    img {
+      width: clamp(4.5rem, 3.5vw + 1rem, 8.5rem);
+    }
+  }
+  .star {
+    width: clamp(1.6rem, 0.6vw + 0.3rem, 2rem) !important;
+  }
+  .name {
+    font-size: clamp(1.8rem, 1.2vw, 3rem);
+  }
+  .review-text {
+    font-size: clamp(1.8rem, 1.1vw, 2.5rem);
+  }
+}
+@media (min-width: 4000px) {
+  .feedback-card {
+    gap: 3rem;
+    padding: 6rem;
+  }
+  .feedback-card-header {
+    gap: clamp(1.5rem, 0.7vw + 0.6rem, 3.5rem);
+
+    img {
+      width: clamp(6rem, 4vw, 13rem);
+    }
+  }
+  .star {
+    width: clamp(2.2rem, 1vw, 3rem) !important;
+  }
+  .name {
+    font-size: clamp(3rem, 2vw, 4.5rem);
+  }
+  .review-text {
+    font-size: clamp(3rem, 1.5vw, 4.1rem);
+  }
+}
+
 @media (max-width: 1200px) {
   .feedback-card {
     gap: clamp(0.8rem, 1vw + 0.5rem, 2rem);

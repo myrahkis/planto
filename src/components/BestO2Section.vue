@@ -6,19 +6,19 @@ import HeadingCorners from './HeadingCorners.vue'
 
 const bestO2Plants = [
   {
-    imgPath: 'images/big-plants/l-plant-1.png',
+    imgPath: 'images/big-plants/l-plant-1.webp',
     heading: 'We Have Small And Best O2 Plants Collection’s',
     p1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
     p2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
   },
   {
-    imgPath: 'images/big-plants/l-plant-2.png',
+    imgPath: 'images/big-plants/l-plant-2.webp',
     heading: 'Lorem ipsum dolor sit amet, adipisicing elit',
     p1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
     p2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
   },
   {
-    imgPath: 'images/big-plants/l-plant-1.png',
+    imgPath: 'images/big-plants/l-plant-1.webp',
     heading: 'Maxime aspernatur debitis dolore incidunt!',
     p1: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
     p2: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni quia tempora veniam expedita sunt inventore, corrupti voluptates beatae aliquid voluptas architecto numquam necessitatibus quasi? Similique laborum necessitatibus amet repellat saepe.',
@@ -215,6 +215,44 @@ function prevCardHandle() {
   border-radius: 6px;
   background: rgba(255, 255, 255, 0.95);
   opacity: 1;
+}
+@media (min-width: 1920px) {
+  .dot {
+    width: 9px;
+    height: 8px;
+  }
+  .dot.active {
+    width: 24px;
+    height: 8px;
+  }
+  .carousel-nav {
+    p {
+      font-size: clamp(1.2rem, 0.9vw + 1rem, 2.2rem);
+    }
+    button svg {
+      width: clamp(1.2rem, 0.9vw + 1rem, 2.2rem);
+    }
+  }
+}
+@media (min-width: 4000px) {
+  .dot {
+    width: 15px;
+    height: 14px;
+  }
+  .dot.active {
+    border-radius: 6rem;
+    width: 44px;
+    height: 14px;
+  }
+  .carousel-nav {
+    p {
+      font-size: clamp(2rem, 1.5vw, 4.5rem);
+    }
+
+    button svg {
+      width: clamp(3rem, 1vw, 4rem);
+    }
+  }
 }
 
 @media (max-width: 762px) {

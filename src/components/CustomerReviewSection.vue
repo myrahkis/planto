@@ -6,21 +6,21 @@ import { animate, onScroll, stagger } from 'animejs'
 
 const feedbacks = [
   {
-    avaPath: 'images/avas/ava-4.png',
+    avaPath: 'images/avas/ava-4.webp',
     name: 'Maln Josi',
     starsAmount: 5,
     reviewText:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
   },
   {
-    avaPath: 'images/avas/ava-2.png',
+    avaPath: 'images/avas/ava-2.webp',
     name: 'Alina Thakur',
     starsAmount: 5,
     reviewText:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.',
   },
   {
-    avaPath: 'images/avas/ava-3.png',
+    avaPath: 'images/avas/ava-3.webp',
     name: 'Max Makvana',
     starsAmount: 5,
     reviewText:

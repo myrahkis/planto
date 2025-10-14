@@ -162,6 +162,51 @@
     padding: 12rem var(--horiz-section-padding);
   }
 }
+@media (min-width: 4000px) {
+  .footer-heading {
+    font-size: clamp(3rem, 2vw, 4.7rem);
+  }
+
+  .subscribe-wrapper {
+    display: inline-flex;
+    padding: 0;
+    border: 3px solid var(--white-color);
+    border-radius: 2rem;
+  }
+  .subscribe-wrapper:has(.email-input:focus) {
+    outline: 4px solid #9ec84b;
+  }
+  .email-input {
+    font-size: clamp(2rem, 2vw, 3.6rem);
+  }
+  .subscribe-btn {
+    font-size: clamp(2rem, 2vw, 3.6rem);
+    border-radius: 1.3rem;
+    padding: 1.9rem 2rem;
+    height: 100%;
+    margin: 0;
+    margin-right: -2px;
+    margin-bottom: -1px;
+  }
+
+  .logoname {
+    img {
+      width: clamp(6rem, 2vw + 2rem, 10rem);
+    }
+    p {
+      font-size: clamp(3rem, 1vw + 2rem, 5rem);
+    }
+  }
+
+  .socials {
+    gap: clamp(3rem, 1vw + 1rem, 5rem);
+
+    li {
+      font-size: clamp(3rem, 1vw, 4rem);
+    }
+  }
+}
+
 @media (max-width: 1100px) {
   .footer-grid {
     grid-template-columns: 1fr auto 1fr;

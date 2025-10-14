@@ -85,19 +85,30 @@ header {
   }
 }
 @media (min-width: 1920px) {
-  :root {
-    --horiz-section-padding: 5rem;
-    --vert-section-padding: 12rem;
+  header {
+    padding: 1rem 1.5rem;
+  }
+  .tool-icon {
+    width: 2.3rem;
   }
 }
 @media (min-width: 2560px) {
-  :root {
-    --horiz-main-padding: 40rem;
+  .tool-icon {
+    width: 3.3rem;
   }
 }
 @media (min-width: 4000px) {
-  :root {
-    --horiz-main-padding: 70rem;
+  header {
+    padding: 2rem 2.5rem;
+  }
+  header.u-card-border-gradient {
+    --u-card-border-radius: 4rem !important;
+  }
+  .tool-icon {
+    width: 5rem;
+  }
+  .logo-icon {
+    width: 7rem;
   }
 }
 

@@ -98,6 +98,20 @@ onMounted(() => {
   right: -3.5rem;
 }
 
+@media (min-width: 2560px) {
+  .corner {
+    transform: scaleX(1.6) scaleY(1.6);
+  }
+  .corner--left {
+    bottom: 0.5rem;
+    left: -6rem;
+  }
+  .corner--right {
+    top: -3rem;
+    right: 0rem;
+  }
+}
+
 @media (max-width: 762px) {
   .corner {
     transform: scaleX(0.6) scaleY(0.6);

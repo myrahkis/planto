@@ -70,7 +70,7 @@ onMounted(() => {
       </div>
     </div>
     <div class="trendy-cards u-card-border-gradient" style="--u-card-border-radius: 6rem">
-      <img src="/images/small-plants/sm-plant-6.png" alt="" />
+      <img src="/images/small-plants/sm-plant-6.webp" alt="" />
       <div class="trendy-cards-info-wrapper">
         <p class="trendy-heading">Trendy House Plant</p>
         <p class="trendy-plant-name">Calathea plant</p>
@@ -79,7 +79,7 @@ onMounted(() => {
     </div>
     <div class="hero-feedback u-card-border-gradient">
       <div class="feedback-header">
-        <img class="ava-img" src="/images/avas/ava-2.png" alt="" />
+        <img class="ava-img" src="/images/avas/ava-2.webp" alt="" />
         <div class="feedback-header-info">
           <p>Alena Patel</p>
           <span><img v-for="star in 5" :key="star" src="/icons/star-icon.svg" alt="" /></span>
@@ -97,7 +97,7 @@ onMounted(() => {
         class="plants-cart-info cart--1 u-card-border-gradient"
         style="--u-card-border-radius: 12rem"
       >
-        <img src="/images/medium-plants/m-plant-1.png" alt="" />
+        <img src="/images/medium-plants/m-plant-1.webp" alt="" />
         <div class="plants-cart-info-wrapper">
           <h3>For Small Decs Ai Plat</h3>
           <p>
@@ -117,7 +117,7 @@ onMounted(() => {
         class="plants-cart-info cart--2 u-card-border-gradient"
         style="--u-card-border-radius: 12rem"
       >
-        <img src="/images/medium-plants/m-plant-2.png" alt="" />
+        <img src="/images/medium-plants/m-plant-2.webp" alt="" />
         <div class="plants-cart-info-wrapper">
           <h3>For Fresh Decs Ai Plat</h3>
           <p>
@@ -141,7 +141,7 @@ onMounted(() => {
 .hero-section {
   position: relative;
   width: 100%;
-  background: url('/images/hero-bg.jpg');
+  background: url('/images/hero-bg.webp');
   aspect-ratio: 1080 / 1620;
   background-size: 100%;
   padding-top: clamp(8rem, 17vw, 20rem);
@@ -330,19 +330,225 @@ onMounted(() => {
   }
 }
 @media (min-width: 1920px) {
-  :root {
-    --horiz-section-padding: 5rem;
-    --vert-section-padding: 12rem;
+  .hero-info-block {
+    p {
+      font-size: clamp(1.5rem, 0.9vw + 1rem, 2.6rem);
+    }
+  }
+  .plants-cart-info {
+    padding: clamp(2rem, 2.8vw, 5rem) clamp(1.5rem, 2.8vw, 4rem);
+
+    img {
+      width: clamp(48rem, 35vw, 65rem);
+      height: clamp(48rem, 35vw, 65rem);
+    }
+  }
+  .plants-cart-btn {
+    img {
+      width: clamp(2rem, 3vw, 4rem);
+      height: clamp(2rem, 3vw, 4rem);
+    }
+  }
+  .trendy-cards {
+    img {
+      margin-top: -35%;
+      width: clamp(25rem, 22vw, 45rem);
+    }
+  }
+  .play-btn {
+    border-radius: 3rem;
+    span {
+      font-size: clamp(1.2rem, 0.45vw + 1rem, 1.8rem);
+    }
+  }
+  .play-icon {
+    width: clamp(2.5rem, 3vw, 6rem);
+  }
+  .feedback-header-info {
+    p {
+      font-size: clamp(1.4rem, 1.3vw, 2.6rem);
+    }
+
+    span {
+      gap: clamp(0.5rem, 0.4vw, 1rem);
+
+      img {
+        width: clamp(1rem, 1.2vw, 2rem);
+      }
+    }
+  }
+  .plants-cart-info-wrapper {
+    p {
+      font-size: clamp(1.2rem, 1vw, 2.4rem);
+    }
+  }
+  .plants-cart-price {
+    font-size: clamp(2.2rem, 2vw, 4.2rem) !important;
+  }
+  .plants-cart-btn {
+    img {
+      width: clamp(1.5rem, 1.8vw, 3rem);
+    }
   }
 }
 @media (min-width: 2560px) {
-  :root {
-    --horiz-main-padding: 40rem;
+  .hero-section {
+    padding-top: clamp(25rem, 35vw, 40rem);
+  }
+  .hero-info-block {
+    p {
+      font-size: clamp(1.8rem, 0.8vw + 1rem, 3rem);
+    }
+  }
+  .plants-cart-info {
+    padding: clamp(2.5rem, 2.5vw, 6rem) clamp(2rem, 2.5vw, 5rem);
+
+    img {
+      width: clamp(65rem, 40vw, 85rem);
+      height: clamp(65rem, 40vw, 85rem);
+    }
+  }
+  .plants-cart-btn {
+    img {
+      width: clamp(2.5rem, 2.5vw, 5rem);
+      height: clamp(2.5rem, 2.5vw, 5rem);
+    }
+  }
+  .trendy-cards {
+    top: clamp(25rem, 35vw, 40rem);
+    img {
+      margin-top: -38%;
+      width: clamp(30rem, 20vw, 55rem);
+    }
+  }
+  .play-btn {
+    border-radius: 3.5rem;
+    span {
+      font-size: clamp(1.5rem, 1.5vw, 2.5rem);
+    }
+  }
+  .play-icon {
+    width: clamp(3rem, 2.5vw, 7rem);
+  }
+  .hero-feedback {
+    padding: 4rem;
+    width: 55rem;
+  }
+  .feedback-header-info {
+    p {
+      font-size: clamp(2rem, 1.3vw, 4rem);
+    }
+
+    span {
+      gap: clamp(0.5rem, 0.3vw, 1rem);
+
+      img {
+        width: clamp(1.2rem, 1vw, 2.5rem);
+      }
+    }
+  }
+  .ava-img {
+    width: clamp(5rem, 4vw, 10rem);
+  }
+  .plants-cart-info-wrapper {
+    p {
+      font-size: clamp(1.4rem, 1.2vw, 2.8rem);
+    }
+  }
+  .plants-cart-price {
+    font-size: clamp(2.5rem, 2vw, 5rem) !important;
+  }
+  .plants-cart-btn {
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    img {
+      width: clamp(2.5rem, 1.5vw, 4rem);
+    }
   }
 }
 @media (min-width: 4000px) {
-  :root {
-    --horiz-main-padding: 70rem;
+  .hero-section {
+    padding-top: clamp(40rem, 40vw, 60rem);
+  }
+  .hero-info-block {
+    gap: 4rem;
+    p {
+      font-size: clamp(3rem, 1vw, 4.5rem);
+    }
+  }
+  .plants-cart-info {
+    padding: clamp(3rem, 3vw, 7rem) clamp(2.5rem, 3vw, 6rem);
+
+    img {
+      margin-top: -15%;
+      width: clamp(90rem, 40vw, 115rem);
+      height: clamp(90rem, 40vw, 115rem);
+    }
+  }
+  .plants-cart-btn {
+    padding: 1.5rem 2.5rem;
+    border-radius: 2.5rem;
+
+    img {
+      width: clamp(3rem, 2vw, 5rem);
+      height: clamp(3rem, 2vw, 5rem);
+    }
+  }
+  .trendy-cards {
+    top: clamp(40rem, 40vw, 60rem);
+    img {
+      margin-top: -40%;
+      width: clamp(46rem, 25vw, 78rem);
+    }
+  }
+  .trendy-cards-info-wrapper {
+    gap: 3rem;
+  }
+  .trendy-heading {
+    font-size: clamp(2rem, 1vw, 4rem);
+  }
+  .trendy-plant-name {
+    font-size: clamp(5rem, 2.5vw, 7rem);
+  }
+  .play-btn {
+    border-radius: 8rem;
+    span {
+      font-size: clamp(3rem, 2vw, 4rem);
+    }
+  }
+  .play-icon {
+    width: clamp(5rem, 4vw, 10rem);
+  }
+  .hero-feedback {
+    padding: 5rem;
+    width: 75rem;
+  }
+  .feedback-header-info {
+    p {
+      font-size: clamp(3rem, 2vw, 5rem);
+    }
+
+    span {
+      gap: clamp(0.7rem, 0.25vw, 1.5rem);
+      img {
+        width: clamp(2rem, 2vw, 3.5rem);
+      }
+    }
+  }
+  .ava-img {
+    width: clamp(10rem, 4vw, 15rem);
+  }
+  .plants-wrapper {
+    bottom: 40rem;
+    gap: 40rem;
+  }
+  .plants-cart-info-wrapper {
+    p {
+      font-size: clamp(2rem, 1.5vw, 4rem);
+    }
+  }
+  .plants-cart-price {
+    font-size: clamp(4rem, 2vw, 6.5rem) !important;
   }
 }
 

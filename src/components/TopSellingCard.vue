@@ -61,6 +61,48 @@ const { card } = defineProps({ card: Object })
   }
 }
 
+@media (min-width: 1920px) {
+  .top-selling-card {
+    img {
+      width: clamp(28rem, 30vw, 46rem);
+      height: clamp(28rem, 30vw, 46rem);
+    }
+  }
+  .cart-btn {
+    img {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+}
+@media (min-width: 2560px) {
+}
+@media (min-width: 4000px) {
+  .top-selling-card {
+    padding: 6rem;
+    img {
+      width: clamp(35rem, 20vw, 70rem);
+      height: clamp(35rem, 20vw, 70rem);
+    }
+  }
+  .cart-btn {
+    padding: 2rem 1.5rem;
+    img {
+      width: clamp(4rem, 2vw, 6rem);
+      height: clamp(4rem, 2vw, 6rem);
+    }
+  }
+  .card-name,
+  .card-price {
+    font-size: clamp(4.5rem,  2vw, 6rem);
+    font-weight: 400;
+  }
+  .card-desc {
+    font-size: clamp(3rem, 1.1vw, 4.5rem);
+    font-weight: 300;
+  }
+}
+
 @media (max-width: 1480px) {
   .top-selling-card {
     img {
