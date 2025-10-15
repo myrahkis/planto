@@ -141,6 +141,7 @@ onMounted(() => {
 
 <style scoped>
 .hero-section {
+  overflow-x: clip;
   position: relative;
   width: 100%;
   height: 100%;
@@ -273,15 +274,13 @@ onMounted(() => {
   transform: translate(-44%, -50%);
 }
 
-.plants-viewport {
+/* .plants-viewport {
+} */
+.plants-wrapper {
   position: absolute;
   left: var(--horiz-section-padding);
   right: var(--horiz-section-padding);
   bottom: 8rem;
-}
-.plants-wrapper {
-  overflow-x: hidden;
-  overflow-y: visible;
   display: flex;
   flex-direction: column;
   gap: 8rem;
@@ -545,10 +544,10 @@ onMounted(() => {
   .ava-img {
     width: clamp(10rem, 4vw, 15rem);
   }
-  .plants-viewport {
-    bottom: 40rem;
-  }
+  /* .plants-viewport {
+  } */
   .plants-wrapper {
+    bottom: 40rem;
     gap: 40rem;
   }
   .plants-cart-info-wrapper {
@@ -647,10 +646,10 @@ onMounted(() => {
     transform: translate(-44%, -48%);
   }
 
-  .plants-viewport {
-    bottom: clamp(3rem, 6vw, 8rem);
-  }
+  /* .plants-viewport {
+  } */
   .plants-wrapper {
+    bottom: clamp(3rem, 6vw, 8rem);
     gap: clamp(3rem, 6vw, 8rem);
   }
   .plants-cart-info {
@@ -756,7 +755,9 @@ onMounted(() => {
     grid-row: 3;
   }
 
-  .plants-viewport {
+  /* .plants-viewport {
+  } */
+  .plants-wrapper {
     position: relative;
     bottom: 0;
     right: 0;
@@ -764,8 +765,6 @@ onMounted(() => {
     grid-column: 1 / -1;
     grid-row: 4 / -1;
   }
-  /* .plants-wrapper {
-  } */
   .plants-cart-info.cart--1.u-card-border-gradient,
   .plants-cart-info.cart--2.u-card-border-gradient {
     --u-card-border-radius: 4rem !important;
