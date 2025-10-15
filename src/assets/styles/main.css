@@ -225,6 +225,11 @@ p {
     padding: clamp(1rem, 1vw, 1.8rem) clamp(2rem, 2vw, 3rem);
   }
 }
+@media (min-width: 6000px) {
+  :root {
+    --horiz-section-padding: 120rem;
+  }
+}
 @media (min-width: 4000px) {
   :root {
     --horiz-section-padding: 70rem;
