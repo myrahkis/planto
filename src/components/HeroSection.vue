@@ -25,7 +25,7 @@ onMounted(() => {
 
   animate('.cart--1', {
     opacity: { from: 0.5 },
-    translateX: { from: '10rem', to: 0 },
+    translateX: { from: '10rem' },
     duration: 1000,
     easing: 'easeOutCubic',
     autoplay: onScroll({
@@ -38,7 +38,7 @@ onMounted(() => {
   })
   animate('.cart--2', {
     opacity: { from: 0.5 },
-    translateX: { from: '-10rem', to: 0 },
+    translateX: { from: '-10rem' },
     duration: 1000,
     easing: 'easeOutCubic',
     autoplay: onScroll({
@@ -92,44 +92,46 @@ onMounted(() => {
     <div class="hero-heading-corners">
       <HeadingCorners headingText="Our Top Sellings" />
     </div>
-    <div class="plants-wrapper">
-      <div
-        class="plants-cart-info cart--1 u-card-border-gradient"
-        style="--u-card-border-radius: 12rem"
-      >
-        <img src="/images/medium-plants/m-plant-1.webp" alt="" />
-        <div class="plants-cart-info-wrapper">
-          <h3>For Small Decs Ai Plat</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua
-          </p>
-          <p class="plants-cart-price">Rs. 599/-</p>
-          <div class="plants-cart-btns">
-            <button class="explore-btn">Explore</button>
-            <button class="plants-cart-btn u-cart-btn-hover">
-              <img src="/icons/cart-icon.svg" alt="" />
-            </button>
+    <div class="plants-viewport">
+      <div class="plants-wrapper">
+        <div
+          class="plants-cart-info cart--1 u-card-border-gradient"
+          style="--u-card-border-radius: 12rem"
+        >
+          <img src="/images/medium-plants/m-plant-1.webp" alt="" />
+          <div class="plants-cart-info-wrapper">
+            <h3>For Small Decs Ai Plat</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua
+            </p>
+            <p class="plants-cart-price">Rs. 599/-</p>
+            <div class="plants-cart-btns">
+              <button class="explore-btn">Explore</button>
+              <button class="plants-cart-btn u-cart-btn-hover">
+                <img src="/icons/cart-icon.svg" alt="" />
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        class="plants-cart-info cart--2 u-card-border-gradient"
-        style="--u-card-border-radius: 12rem"
-      >
-        <img src="/images/medium-plants/m-plant-2.webp" alt="" />
-        <div class="plants-cart-info-wrapper">
-          <h3>For Fresh Decs Ai Plat</h3>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua
-          </p>
-          <p class="plants-cart-price">Rs. 579/-</p>
-          <div class="plants-cart-btns">
-            <button class="explore-btn">Explore</button>
-            <button class="plants-cart-btn u-cart-btn-hover">
-              <img src="/icons/cart-icon.svg" alt="" />
-            </button>
+        <div
+          class="plants-cart-info cart--2 u-card-border-gradient"
+          style="--u-card-border-radius: 12rem"
+        >
+          <img src="/images/medium-plants/m-plant-2.webp" alt="" />
+          <div class="plants-cart-info-wrapper">
+            <h3>For Fresh Decs Ai Plat</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+              incididunt ut labore et dolore magna aliqua
+            </p>
+            <p class="plants-cart-price">Rs. 579/-</p>
+            <div class="plants-cart-btns">
+              <button class="explore-btn">Explore</button>
+              <button class="plants-cart-btn u-cart-btn-hover">
+                <img src="/icons/cart-icon.svg" alt="" />
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -141,11 +143,11 @@ onMounted(() => {
 .hero-section {
   position: relative;
   width: 100%;
+  height: 100%;
   background: url('/images/hero-bg.webp');
   aspect-ratio: 1080 / 1620;
   background-size: 100%;
   padding-top: clamp(8rem, 17vw, 20rem);
-  height: auto;
 }
 
 .hero-info-block {
@@ -221,6 +223,7 @@ onMounted(() => {
     width: 100%;
   }
 }
+
 .trendy-cards-info-wrapper {
   display: flex;
   flex-direction: column;
@@ -245,6 +248,7 @@ onMounted(() => {
   gap: 2rem;
   padding: 3rem;
   width: 43rem;
+  height: fit-content;
 }
 .feedback-header {
   display: flex;
@@ -269,17 +273,20 @@ onMounted(() => {
   transform: translate(-44%, -50%);
 }
 
-.plants-wrapper {
+.plants-viewport {
   position: absolute;
   left: var(--horiz-section-padding);
   right: var(--horiz-section-padding);
   bottom: 8rem;
-  /* padding-top: 47%; */
-  left: var(--horiz-section-padding);
+}
+.plants-wrapper {
+  overflow-x: hidden;
+  overflow-y: visible;
   display: flex;
   flex-direction: column;
   gap: 8rem;
   width: auto;
+  padding-top: 2rem;
 }
 .plants-cart-info {
   display: flex;
@@ -538,8 +545,10 @@ onMounted(() => {
   .ava-img {
     width: clamp(10rem, 4vw, 15rem);
   }
-  .plants-wrapper {
+  .plants-viewport {
     bottom: 40rem;
+  }
+  .plants-wrapper {
     gap: 40rem;
   }
   .plants-cart-info-wrapper {
@@ -638,8 +647,10 @@ onMounted(() => {
     transform: translate(-44%, -48%);
   }
 
-  .plants-wrapper {
+  .plants-viewport {
     bottom: clamp(3rem, 6vw, 8rem);
+  }
+  .plants-wrapper {
     gap: clamp(3rem, 6vw, 8rem);
   }
   .plants-cart-info {
@@ -676,8 +687,8 @@ onMounted(() => {
     grid-template-rows: 1fr 1fr 1.2fr auto;
     padding-top: clamp(13rem, 17vw, 20rem);
     background-repeat: no-repeat;
-    row-gap: 2rem;
-    column-gap: 1rem;
+    row-gap: 3rem;
+    column-gap: 2rem;
   }
 
   .hero-info-block {
@@ -686,6 +697,10 @@ onMounted(() => {
     }
   }
   .hero-info-block {
+    backdrop-filter: blur(2px);
+    padding: 1rem;
+    border-radius: 4rem;
+    height: fit-content;
     grid-column: 1 / 1;
     grid-row: 1;
   }
@@ -741,7 +756,7 @@ onMounted(() => {
     grid-row: 3;
   }
 
-  .plants-wrapper {
+  .plants-viewport {
     position: relative;
     bottom: 0;
     right: 0;
@@ -749,6 +764,8 @@ onMounted(() => {
     grid-column: 1 / -1;
     grid-row: 4 / -1;
   }
+  /* .plants-wrapper {
+  } */
   .plants-cart-info.cart--1.u-card-border-gradient,
   .plants-cart-info.cart--2.u-card-border-gradient {
     --u-card-border-radius: 4rem !important;
@@ -765,7 +782,7 @@ onMounted(() => {
     }
   }
   .plants-cart-info-wrapper {
-    gap: 1rem;
+    gap: 2rem;
   }
 
   .plants-cart-btn {
@@ -779,17 +796,13 @@ onMounted(() => {
 }
 @media (max-width: 560px) {
   .hero-section {
-    /* padding-top: clamp(12rem, 17vw, 20rem); */
-    grid-template-rows: 1fr 1fr 1fr 1.2fr auto;
+    grid-template-rows: 1fr 1fr auto 0.5fr auto;
   }
   .plants-cart-info {
     flex-direction: column;
     padding: clamp(2rem, 3vw, 4rem) clamp(3rem, 3vw, 3rem);
   }
   .hero-info-block {
-    backdrop-filter: blur(2px);
-    padding: 1rem;
-    border-radius: 3rem;
     grid-column: 1 / -1;
     grid-row: 1;
   }
@@ -798,7 +811,7 @@ onMounted(() => {
     grid-row: 2;
 
     img {
-      width: clamp(10rem, 15vw, 14rem);
+      width: clamp(13rem, 15vw, 16rem);
     }
   }
   .trendy-plant-name {
@@ -815,17 +828,28 @@ onMounted(() => {
     grid-column: 1 / -1;
     grid-row: 4;
   }
-  .plants-wrapper {
+  .plants-viewport {
     grid-column: 1 / -1;
     grid-row: 5 / -1;
   }
+  /* .plants-wrapper {
+  } */
 }
 
-@media (max-width: 380px) {
+@media (max-width: 415px) {
   .hero-section {
     padding-top: clamp(10rem, 17vw, 15rem);
     display: flex;
     flex-direction: column;
+    gap: 4rem;
+  }
+}
+@media (max-width: 356px) {
+  .trendy-cards {
+    img {
+      width: clamp(11rem, 15vw, 13rem);
+      margin-bottom: 0.8rem;
+    }
   }
 }
 </style>

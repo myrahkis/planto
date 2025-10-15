@@ -43,7 +43,6 @@ html {
 }
 
 body {
-  overflow-x: hidden;
   position: relative;
   font-size: clamp(1rem, 0.5vw + 1rem, 1.5rem);
   font-weight: 500;
