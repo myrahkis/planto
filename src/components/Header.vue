@@ -1,4 +1,11 @@
-<script setup></script>
+<script setup>
+import { useStore } from 'vuex'
+
+const store = useStore()
+const openCart = () => {
+  store.commit('cartStore/openCart')
+}
+</script>
 
 <template>
   <header
@@ -19,7 +26,7 @@
       <button class="tool-btn">
         <img class="tool-icon" src="/icons/search-icon.svg" alt="" />
       </button>
-      <button class="tool-btn">
+      <button class="tool-btn" @click="openCart">
         <img class="tool-icon" src="/icons/cart-icon.svg" alt="" />
       </button>
       <button class="tool-btn">

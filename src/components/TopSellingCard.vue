@@ -1,5 +1,14 @@
 <script setup>
+import { useStore } from 'vuex'
+
 const { card } = defineProps({ card: Object })
+
+const store = useStore()
+const addItem = (value) => store.commit('cartStore/addItem', value)
+
+function cartClickHandle() {
+  addItem(card)
+}
 </script>
 
 <template>
@@ -10,7 +19,7 @@ const { card } = defineProps({ card: Object })
       <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
       <div class="card-footer">
         <p class="card-price">Rs. 359/-</p>
-        <button class="cart-btn u-cart-btn-hover">
+        <button class="cart-btn u-cart-btn-hover" @click="cartClickHandle">
           <img src="/icons/cart-icon.svg" alt="" />
         </button>
       </div>
@@ -94,7 +103,7 @@ const { card } = defineProps({ card: Object })
   }
   .card-name,
   .card-price {
-    font-size: clamp(4.5rem,  2vw, 6rem);
+    font-size: clamp(4.5rem, 2vw, 6rem);
     font-weight: 400;
   }
   .card-desc {

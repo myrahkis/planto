@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, onBeforeUnmount } from 'vue'
+import { onMounted, onBeforeUnmount, computed } from 'vue'
 import { animate } from 'animejs'
 import BestO2Section from './components/BestO2Section.vue'
 import CustomerReviewSection from './components/CustomerReviewSection.vue'
@@ -7,6 +7,11 @@ import Footer from './components/Footer.vue'
 import Header from './components/Header.vue'
 import HeroSection from './components/HeroSection.vue'
 import TopSellingSection from './components/TopSellingSection.vue'
+import { useStore } from 'vuex'
+import Cart from './components/Cart.vue'
+
+const store = useStore()
+const isCartOpened = computed(() => store.state.cartStore.isOpened)
 
 const rand = (min, max) => min + Math.random() * (max - min)
 
@@ -90,6 +95,7 @@ onBeforeUnmount(() => document.body.removeEventListener('click', onBodyClick))
 
 <template>
   <Header />
+  <Cart v-if="isCartOpened" />
   <HeroSection />
   <TopSellingSection />
   <CustomerReviewSection />

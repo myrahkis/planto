@@ -5,12 +5,32 @@ import TopSellingCard from './TopSellingCard.vue'
 import { animate, onScroll, stagger } from 'animejs'
 
 const plantsData = [
-  { imgPath: 'images/small-plants/sm-plant-6.webp', name: 'Aglaonema' },
-  { imgPath: 'images/small-plants/sm-plant-2.webp', name: 'Peperomia obtusifolia' },
-  { imgPath: 'images/small-plants/sm-plant-4.webp', name: 'Cactus' },
-  { imgPath: 'images/small-plants/sm-plant-1.webp', name: 'Monstera deliciosa' },
-  { imgPath: 'images/small-plants/sm-plant-3.webp', name: 'Dracaena fragrans' },
-  { imgPath: 'images/small-plants/sm-plant-5.webp', name: 'Sansevieria' },
+  {
+    id: crypto.randomUUID(),
+    imgPath: 'images/small-plants/sm-plant-6.webp',
+    name: 'Aglaonema',
+  },
+  {
+    id: crypto.randomUUID(),
+    imgPath: 'images/small-plants/sm-plant-2.webp',
+    name: 'Peperomia obtusifolia',
+  },
+  { id: crypto.randomUUID(), imgPath: 'images/small-plants/sm-plant-4.webp', name: 'Cactus' },
+  {
+    id: crypto.randomUUID(),
+    imgPath: 'images/small-plants/sm-plant-1.webp',
+    name: 'Monstera deliciosa',
+  },
+  {
+    id: crypto.randomUUID(),
+    imgPath: 'images/small-plants/sm-plant-3.webp',
+    name: 'Dracaena fragrans',
+  },
+  {
+    id: crypto.randomUUID(),
+    imgPath: 'images/small-plants/sm-plant-5.webp',
+    name: 'Sansevieria',
+  },
 ]
 
 onMounted(() => {
