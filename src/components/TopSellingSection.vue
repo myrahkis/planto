@@ -3,51 +3,54 @@ import { onMounted } from 'vue'
 import HeadingCorners from './HeadingCorners.vue'
 import TopSellingCard from './TopSellingCard.vue'
 import { animate, onScroll, stagger } from 'animejs'
+import { setIdFromName } from '@/helpers/helpers'
 
 const plantsData = [
   {
-    id: crypto.randomUUID(),
+    id: setIdFromName('Calatheas'),
     price: 149,
     currency: '$',
     imgPath: 'images/small-plants/sm-plant-6.webp',
-    name: 'Aglaonema',
+    name: 'Calatheas',
   },
   {
-    id: crypto.randomUUID(),
+    id: setIdFromName('Peperomia obtusifolia'),
     price: 129,
     currency: '$',
     imgPath: 'images/small-plants/sm-plant-2.webp',
     name: 'Peperomia obtusifolia',
   },
   {
-    id: crypto.randomUUID(),
+    id: setIdFromName('Cactus'),
     price: 100,
     currency: '$',
     imgPath: 'images/small-plants/sm-plant-4.webp',
     name: 'Cactus',
   },
   {
-    id: crypto.randomUUID(),
+    id: setIdFromName('Monstera deliciosa'),
     price: 99,
     currency: '$',
     imgPath: 'images/small-plants/sm-plant-1.webp',
     name: 'Monstera deliciosa',
   },
   {
-    id: crypto.randomUUID(),
+    id: setIdFromName('Dracaena fragrans'),
     price: 139,
     currency: '$',
     imgPath: 'images/small-plants/sm-plant-3.webp',
     name: 'Dracaena fragrans',
   },
   {
-    id: crypto.randomUUID(),
+    id: setIdFromName('Sansevieria'),
     price: 159,
     currency: '$',
     imgPath: 'images/small-plants/sm-plant-5.webp',
     name: 'Sansevieria',
   },
 ]
+
+// console.log(plantsData)
 
 onMounted(() => {
   const cards = document.querySelectorAll('.plants-cards-grid > *')
@@ -72,7 +75,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <section class="top-selling-section" ref="root">
+  <section class="top-selling-section" ref="root" id="top-selling-section">
     <div class="heading-corners">
       <HeadingCorners headingText="Our Top Selling"></HeadingCorners>
     </div>

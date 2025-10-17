@@ -1,13 +1,21 @@
 <script setup>
+import { computed } from 'vue'
 import { useStore } from 'vuex'
 
 const { card } = defineProps({ card: Object })
 
 const store = useStore()
-const addItem = (value) => store.commit('cartStore/addItem', value)
+const addItem = (item) => store.commit('cartStore/addItem', item)
+const deleteItem = (id) => store.commit('cartStore/deleteItem', id)
+const openCart = () => store.commit('cartStore/openCart')
+const isAdded = computed(() => store.getters['cartStore/isInCart'](card.id))
 
 function cartClickHandle() {
-  addItem(card)
+  if (isAdded.value) {
+    openCart()
+  } else {
+    addItem(card)
+  }
 }
 </script>
 
@@ -18,10 +26,17 @@ function cartClickHandle() {
       <p class="card-name">{{ card.name }}</p>
       <p class="card-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
       <div class="card-footer">
-        <p class="card-price">Rs. 359/-</p>
-        <button class="cart-btn u-cart-btn-hover" @click="cartClickHandle">
-          <img src="/icons/cart-icon.svg" alt="" />
-        </button>
+        <p class="card-price">{{ card.currency }}{{ card.price }}</p>
+        <div class="btns-wrapper">
+          <button class="cart-btn u-cart-btn-hover" @click="cartClickHandle">
+            <img src="/icons/cart-icon.svg" alt="" />
+          </button>
+          <div v-if="isAdded" class="quant-btns-wrapper">
+            <button class="quant-btn" @click="deleteItem(card.id)">-</button>
+            <span>{{ isAdded?.quantity }}</span>
+            <button class="quant-btn" @click="addItem(card)">+</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -58,6 +73,18 @@ function cartClickHandle() {
   display: flex;
   justify-content: space-between;
 }
+
+.btns-wrapper {
+  display: inline-flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 1.3rem;
+}
+/* .quant-btns-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+} */
 .cart-btn {
   display: flex;
   align-items: center;

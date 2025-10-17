@@ -1,7 +1,45 @@
 <script setup>
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import { animate, onScroll } from 'animejs'
 import HeadingCorners from './HeadingCorners.vue'
+import { useStore } from 'vuex'
+import { setIdFromName } from '@/helpers/helpers'
+
+const topSellingCards = [
+  {
+    id: setIdFromName('Peperomia obtusifolia'),
+    name: 'Peperomia obtusifolia',
+    imgPath: 'images/medium-plants/m-plant-1.webp',
+    heading: 'For Small Decs Ai Plat',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ',
+    price: 129,
+    currency: '$',
+  },
+  {
+    id: setIdFromName('Sansevieria'),
+    name: 'Sansevieria',
+    imgPath: 'images/medium-plants/m-plant-2.webp',
+    heading: 'For Fresh Decs Ai Plat',
+    text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ',
+    price: 159,
+    currency: '$',
+  },
+]
+
+// console.log(topSellingCards)
+
+const store = useStore()
+const addToCart = (item) => store.commit('cartStore/addItem', item)
+const openCart = () => store.commit('cartStore/openCart')
+const isAdded = (id) => store.getters['cartStore/isInCart'](id)
+
+function cartClickHandle(item) {
+  if (isAdded(item.id)) {
+    openCart()
+  } else {
+    addToCart(item)
+  }
+}
 
 onMounted(() => {
   animate('.hero-heading', {
@@ -33,7 +71,6 @@ onMounted(() => {
       target: '.cart--1',
       enter: 'bottom top',
       leave: 'top bottom',
-      // debug: true,
     }),
   })
   animate('.cart--2', {
@@ -46,7 +83,6 @@ onMounted(() => {
       target: '.cart--2',
       enter: 'bottom top',
       leave: 'top bottom',
-      // debug: true,
     }),
   })
 })
@@ -74,7 +110,7 @@ onMounted(() => {
       <div class="trendy-cards-info-wrapper">
         <p class="trendy-heading">Trendy House Plant</p>
         <p class="trendy-plant-name">Calathea plant</p>
-        <button class="explore-btn">Buy Now</button>
+        <a class="explore-btn" href="#top-selling-section">Buy Now</a>
       </div>
     </div>
     <div class="hero-feedback u-card-border-gradient">
@@ -95,42 +131,29 @@ onMounted(() => {
     <div class="plants-viewport">
       <div class="plants-wrapper">
         <div
-          class="plants-cart-info cart--1 u-card-border-gradient"
+          v-for="(plant, index) in topSellingCards"
+          :key="plant.id"
+          :class="['plants-cart-info', `cart--${index + 1}`, 'u-card-border-gradient']"
           style="--u-card-border-radius: 12rem"
         >
-          <img src="/images/medium-plants/m-plant-1.webp" alt="" />
+          <img :src="plant.imgPath" alt="" />
           <div class="plants-cart-info-wrapper">
-            <h3>For Small Decs Ai Plat</h3>
+            <h3>{{ plant.heading }}</h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua
+              {{ plant.text }}
             </p>
-            <p class="plants-cart-price">Rs. 599/-</p>
+            <p class="plants-cart-price">{{ plant.currency }}{{ plant.price }}</p>
             <div class="plants-cart-btns">
               <button class="explore-btn">Explore</button>
-              <button class="plants-cart-btn u-cart-btn-hover">
+              <button class="plants-cart-btn u-cart-btn-hover" @click="cartClickHandle(plant)">
                 <img src="/icons/cart-icon.svg" alt="" />
               </button>
-            </div>
-          </div>
-        </div>
-        <div
-          class="plants-cart-info cart--2 u-card-border-gradient"
-          style="--u-card-border-radius: 12rem"
-        >
-          <img src="/images/medium-plants/m-plant-2.webp" alt="" />
-          <div class="plants-cart-info-wrapper">
-            <h3>For Fresh Decs Ai Plat</h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-              incididunt ut labore et dolore magna aliqua
-            </p>
-            <p class="plants-cart-price">Rs. 579/-</p>
-            <div class="plants-cart-btns">
-              <button class="explore-btn">Explore</button>
-              <button class="plants-cart-btn u-cart-btn-hover">
-                <img src="/icons/cart-icon.svg" alt="" />
-              </button>
+
+              <div v-if="isAdded(plant.id)" class="quant-btns-wrapper">
+                <button class="quant-btn" @click="deleteItem(plant.id)">-</button>
+                <span>{{ isAdded(plant.id)?.quantity }}</span>
+                <button class="quant-btn" @click="addToCart(plant)">+</button>
+              </div>
             </div>
           </div>
         </div>

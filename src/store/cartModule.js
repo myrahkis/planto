@@ -7,6 +7,14 @@ const cartModule = {
     totalCartPrice(state) {
       return state.cart.reduce((acc, cur) => acc + cur.totalPrice, 0)
     },
+    isInCart(state) {
+      return function (id) {
+        return state.cart.find((item) => item.id === id)
+      }
+    },
+    amountOfItems(state) {
+      return state.cart.reduce((acc, cur) => cur.quantity + acc, 0)
+    },
   },
   mutations: {
     addItem(state, item) {
@@ -28,6 +36,9 @@ const cartModule = {
         item.quantity--
         item.totalPrice -= item.price
       } else state.cart = state.cart.filter((item) => item.id !== id)
+    },
+    clearCart(state) {
+      state.cart = []
     },
     openCart(state) {
       state.isOpened = true
