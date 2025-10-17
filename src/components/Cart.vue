@@ -17,9 +17,9 @@ const clearCart = () => store.commit('cartStore/clearCart')
   <div class="cart-wrapper">
     <button class="close-btn" @click="closeCart">x</button>
     <div>
-      <h3 class="cart-heading">
-        Cart <span>{{ itemsAmount > 0 ? itemsAmount : '' }}</span>
-      </h3>
+      <p class="cart-heading">
+        Cart<span>{{ itemsAmount > 0 ? itemsAmount : '' }}</span>
+      </p>
       <ul class="cart-list">
         <li v-for="item in cart" :key="item.id">
           <div class="cart-row">
@@ -65,12 +65,16 @@ const clearCart = () => store.commit('cartStore/clearCart')
 .cart-heading {
   position: relative;
   width: fit-content;
+  font-size: clamp(2rem, 2.5vw, 3.8rem);
+  font-weight: 600;
+  color: var(--white-color);
+  line-height: 1.18;
 
   span {
     position: absolute;
-    top: -0.2rem;
+    top: -0.2em;
     right: -1.3em;
-    font-size: 1.6rem;
+    font-size: 0.5em;
   }
 }
 
@@ -121,21 +125,40 @@ const clearCart = () => store.commit('cartStore/clearCart')
   padding-top: 1rem;
 }
 .total-price {
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
+  font-size: 1.8rem;
+  line-height: 1;
+  padding: 1rem 1.3rem;
   border: 2px solid rgba(255, 255, 255, 0.25);
   border-radius: 1rem;
 }
 .checkout-btn {
   background-color: #9ec84b;
   color: var(--bg-color);
-  padding: 0.5rem 1rem;
+  padding: 1rem 1.3rem;
   border-radius: 1rem;
-  font-weight: 600;
+  font-size: 1.5rem;
+  font-weight: 700;
+  /* height: fit-content; */
   transition: all 0.2s;
 
   &:hover {
     background-color: #8fb544;
+  }
+}
+
+@media (max-width: 762px) {
+  .cart-wrapper {
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    height: 50rem;
+    width: 100%;
+    border-top-left-radius: 4rem;
+    border-top-right-radius: 4rem;
+    box-shadow: 0 -1rem 2.5rem rgb(16, 16, 16, 0.6);
+  }
+  .cart-list {
+    margin-top: 1.5rem;
   }
 }
 </style>

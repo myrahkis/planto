@@ -128,32 +128,30 @@ onMounted(() => {
     <div class="hero-heading-corners">
       <HeadingCorners headingText="Our Top Sellings" />
     </div>
-    <div class="plants-viewport">
-      <div class="plants-wrapper">
-        <div
-          v-for="(plant, index) in topSellingCards"
-          :key="plant.id"
-          :class="['plants-cart-info', `cart--${index + 1}`, 'u-card-border-gradient']"
-          style="--u-card-border-radius: 12rem"
-        >
-          <img :src="plant.imgPath" alt="" />
-          <div class="plants-cart-info-wrapper">
-            <h3>{{ plant.heading }}</h3>
-            <p>
-              {{ plant.text }}
-            </p>
-            <p class="plants-cart-price">{{ plant.currency }}{{ plant.price }}</p>
-            <div class="plants-cart-btns">
-              <button class="explore-btn">Explore</button>
-              <button class="plants-cart-btn u-cart-btn-hover" @click="cartClickHandle(plant)">
-                <img src="/icons/cart-icon.svg" alt="" />
-              </button>
+    <div class="plants-wrapper">
+      <div
+        v-for="(plant, index) in topSellingCards"
+        :key="plant.id"
+        :class="['plants-cart-info', `cart--${index + 1}`, 'u-card-border-gradient']"
+        style="--u-card-border-radius: 12rem"
+      >
+        <img :src="plant.imgPath" alt="" />
+        <div class="plants-cart-info-wrapper">
+          <h3>{{ plant.heading }}</h3>
+          <p>
+            {{ plant.text }}
+          </p>
+          <p class="plants-cart-price">{{ plant.currency }}{{ plant.price }}</p>
+          <div class="plants-cart-btns">
+            <button class="explore-btn">Explore</button>
+            <button class="plants-cart-btn u-cart-btn-hover" @click="cartClickHandle(plant)">
+              <img src="/icons/cart-icon.svg" alt="" />
+            </button>
 
-              <div v-if="isAdded(plant.id)" class="quant-btns-wrapper">
-                <button class="quant-btn" @click="deleteItem(plant.id)">-</button>
-                <span>{{ isAdded(plant.id)?.quantity }}</span>
-                <button class="quant-btn" @click="addToCart(plant)">+</button>
-              </div>
+            <div v-if="isAdded(plant.id)" class="quant-btns-wrapper">
+              <button class="quant-btn" @click="deleteItem(plant.id)">-</button>
+              <span>{{ isAdded(plant.id)?.quantity }}</span>
+              <button class="quant-btn" @click="addToCart(plant)">+</button>
             </div>
           </div>
         </div>
@@ -850,12 +848,12 @@ onMounted(() => {
     grid-column: 1 / -1;
     grid-row: 4;
   }
-  .plants-viewport {
+  /* .plants-viewport {
+  } */
+  .plants-wrapper {
     grid-column: 1 / -1;
     grid-row: 5 / -1;
   }
-  /* .plants-wrapper {
-  } */
 }
 
 @media (max-width: 415px) {
