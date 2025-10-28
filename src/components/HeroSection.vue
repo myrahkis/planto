@@ -30,6 +30,7 @@ const topSellingCards = [
 
 const store = useStore()
 const addToCart = (item) => store.commit('cartStore/addItem', item)
+const deleteItem = (id) => store.commit('cartStore/deleteItem', id)
 const openCart = () => store.commit('cartStore/openCart')
 const isAdded = (id) => store.getters['cartStore/isInCart'](id)
 
