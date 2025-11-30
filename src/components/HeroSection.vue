@@ -1,9 +1,12 @@
 <script setup>
-import { computed, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { animate, onScroll } from 'animejs'
-import HeadingCorners from './HeadingCorners.vue'
 import { useStore } from 'vuex'
 import { setIdFromName } from '@/helpers/helpers'
+import * as THREE from 'three'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import HeadingCorners from './HeadingCorners.vue'
 
 const topSellingCards = [
   {
@@ -26,13 +29,13 @@ const topSellingCards = [
   },
 ]
 
-// console.log(topSellingCards)
-
 const store = useStore()
 const addToCart = (item) => store.commit('cartStore/addItem', item)
 const deleteItem = (id) => store.commit('cartStore/deleteItem', id)
 const openCart = () => store.commit('cartStore/openCart')
 const isAdded = (id) => store.getters['cartStore/isInCart'](id)
+
+const container = ref(null)
 
 function cartClickHandle(item) {
   if (isAdded(item.id)) {
@@ -42,6 +45,165 @@ function cartClickHandle(item) {
   }
 }
 
+onMounted(() => {
+  const width = () => container.value.clientWidth
+  const height = () => container.value.clientHeight
+
+  const scene = new THREE.Scene()
+
+  const camera = new THREE.PerspectiveCamera(45, width() / height(), 0.1, 5000)
+  camera.position.set(0, 1.5, 2)
+
+  const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  renderer.setSize(width(), height())
+  container.value.appendChild(renderer.domElement)
+  renderer.outputEncoding = THREE.sRGBEncoding
+  renderer.toneMapping = THREE.ACESFilmicToneMapping
+  renderer.toneMappingExposure = 0.23
+  // renderer.physicallyCorrectLights = true
+
+  const loaderBg = new THREE.TextureLoader()
+  loaderBg.load('hero-bg.png', (texture) => {
+    texture.encoding = THREE.sRGBEncoding
+    texture.needsUpdate = true
+
+    scene.background = texture
+
+    // если нужен envMap:
+    const pmrem = new THREE.PMREMGenerator(renderer)
+    const env = pmrem.fromEquirectangular(texture).texture
+    scene.environment = env
+    pmrem.dispose()
+  })
+
+  // light
+  // const hemi = new THREE.HemisphereLight('#e2ffa9', 0x666666, 0.8)
+  // scene.add(hemi)
+  const light = new THREE.AmbientLight(0xffffff, 6.5)
+  scene.add(light)
+  const dir = new THREE.DirectionalLight('#e2ffa9', 5.5)
+  // dir.position.set(2, 3, 3)
+  scene.add(dir)
+
+  // controls
+  const controls = new OrbitControls(camera, renderer.domElement)
+  controls.enableDamping = true
+  controls.dampingFactor = 0.08
+  controls.autoRotate = true
+  controls.enablePan = false
+  controls.enableZoom = false
+
+  const horizontalAngle = Math.PI / 2
+  controls.minPolarAngle = horizontalAngle
+  controls.maxPolarAngle = horizontalAngle
+
+  // model load
+  // model by AllQuad (https://linktr.ee/allquad)
+  const loader = new GLTFLoader()
+  let modelRoot = null
+  loader.load(
+    'hero-plant-model.glb',
+    (gltf) => {
+      modelRoot = gltf.scene
+
+      // centering model
+      const boxBefore = new THREE.Box3().setFromObject(modelRoot)
+      const centerBefore = boxBefore.getCenter(new THREE.Vector3())
+      modelRoot.position.sub(centerBefore)
+
+      modelRoot.scale.setScalar(10)
+
+      // bounding box
+      const box = new THREE.Box3().setFromObject(modelRoot)
+      const size = box.getSize(new THREE.Vector3())
+      const center = box.getCenter(new THREE.Vector3())
+      const maxDim = Math.max(size.x, size.y, size.z)
+
+      // camera positioning
+      const fov = camera.fov * (Math.PI / 180)
+      let cameraZ = Math.abs(maxDim / 2 / Math.tan(fov / 2)) * 1.35
+      camera.position.set(center.x, center.y, cameraZ + 0.5)
+
+      camera.near = 0.1
+      camera.far = Math.max(camera.far, cameraZ * 10, 5000)
+      camera.updateProjectionMatrix()
+
+      // distance
+      controls.target.copy(center)
+      controls.update()
+      controls.minDistance = 0.1
+      controls.maxDistance = Math.max(1000, camera.far)
+
+      scene.add(modelRoot)
+
+      // const axes = new THREE.AxesHelper(maxDim * 0.5)
+      // scene.add(axes)
+      // const boxHelper = new THREE.Box3Helper(box, 0xff0000)
+      // scene.add(boxHelper)
+    },
+    undefined,
+    (error) => console.error('Error while loading the model', error),
+  )
+
+  let raf = null
+  const animateModel = () => {
+    controls.update()
+    renderer.render(scene, camera)
+    raf = requestAnimationFrame(animateModel)
+  }
+  animateModel()
+
+  // resize
+  const onResize = () => {
+    camera.aspect = width() / height()
+    camera.updateProjectionMatrix()
+    renderer.setSize(width(), height())
+  }
+  window.addEventListener('resize', onResize)
+
+  // updating cursor
+  function grabbingStartHandle() {
+    renderer.domElement.style.cursor = 'grabbing'
+  }
+  function grabbingEndHandle() {
+    renderer.domElement.style.cursor = 'grab'
+  }
+  controls.addEventListener('start', grabbingStartHandle)
+  controls.addEventListener('end', grabbingEndHandle)
+
+  // cleaning
+  onBeforeUnmount(() => {
+    cancelAnimationFrame(raf)
+    window.removeEventListener('resize', onResize)
+    controls.removeEventListener('start', grabbingStartHandle)
+    controls.removeEventListener('end', grabbingEndHandle)
+    controls.dispose()
+
+    if (modelRoot) {
+      modelRoot.traverse((child) => {
+        if (child.isMesh) {
+          child.geometry.dispose()
+          if (Array.isArray(child.material)) {
+            child.material.forEach((m) => {
+              if (m.map) m.map.dispose()
+              m.dispose()
+            })
+          } else {
+            if (child.material.map) child.material.map.dispose()
+            child.material.dispose()
+          }
+        }
+      })
+      scene.remove(modelRoot)
+    }
+    renderer.forceContextLoss()
+    renderer.dispose()
+    if (container.value && renderer.domElement) container.value.removeChild(renderer.domElement)
+  })
+})
+
+// ui elemets' anim
 onMounted(() => {
   animate('.hero-heading', {
     '--pos': ['0%', '100%'],
@@ -91,6 +253,7 @@ onMounted(() => {
 
 <template>
   <section class="hero-section">
+    <div ref="container" class="viewer"></div>
     <div class="hero-info-block">
       <h1 class="hero-heading">Breath Natureal</h1>
       <p>
@@ -163,17 +326,24 @@ onMounted(() => {
 
 <style scoped>
 .hero-section {
-  overflow-x: clip;
   position: relative;
   width: 100%;
-  height: 100%;
-  background: url('/images/hero-bg.webp');
   aspect-ratio: 1080 / 1620;
-  background-size: 100%;
-  padding-top: clamp(8rem, 17vw, 20rem);
+  overflow: hidden;
+}
+
+.viewer {
+  cursor: grab;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .hero-info-block {
+  position: absolute;
+  top: clamp(8rem, 17vw, 20rem);
+  left: var(--horiz-section-padding);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -702,6 +872,7 @@ onMounted(() => {
     display: none;
   }
   .hero-section {
+    overflow: visible;
     display: grid;
     height: fit-content;
     grid-template-columns: 1.1fr auto;
