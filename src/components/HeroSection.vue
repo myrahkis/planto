@@ -889,6 +889,9 @@ onMounted(() => {
     }
   }
   .hero-info-block {
+    position: relative;
+    top: auto;
+    left: auto;
     backdrop-filter: blur(2px);
     padding: 1rem;
     border-radius: 4rem;
